@@ -1,0 +1,165 @@
+.loginPhone {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #090D28;
+  color: #fff;
+}
+
+.loginPhone__container {
+  display: flex;
+}
+
+.loginPhone__section1 {
+  background: rgba(255, 255, 255, 8%);
+  max-width: 500px;
+  height: 100vh;
+  padding: 70px;
+}
+
+.loginPhone__title {
+  font-size: 52px;
+  font-weight: bold;
+}
+
+.loginPhone__description {
+  font-size: 24px;
+}
+
+.loginPhone__section2 {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  padding: 70px;
+}
+
+.loginPhone__row {
+  display: flex;
+}
+
+.loginPhone__btnSignup,
+.loginPhone__btnLogin {
+  flex: 0.5;
+}
+
+.loginPhone__btnLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.loginPhone__btnSignup > Button{
+  background-color: #181C35;
+  border: none;
+  border-radius: 8px;
+  color: #585D86;
+  width: 146px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.loginPhone__btnSignup > Button:hover {
+  background-color: #171931!important;
+  color: #fff!important;
+}
+
+.loginPhone__btnLogin > Button {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.loginPhone__row .loginPhone__title,
+.loginPhone__row .loginPhone__field {
+  flex: 0.5;
+  /* margin-top: 30%; */
+}
+
+.loginPhone__row2 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.loginPhone__row .loginPhone__title > h1 {
+  font-size: 24px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.loginPhone__row .loginPhone__title > p  {
+  font-size: 42px;
+}
+
+.loginPhone__toggle {
+  display: flex;
+  justify-content: end;
+}
+
+.loginPhone__toggle > Button{
+  background: #181C35;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 65px;
+  height: 48px;
+  margin: 0 -1px;
+}
+.loginPhone__toggle > Button:hover{
+  transition: 0.1s;
+  background: transparent;
+  border-bottom: 2px solid #08B952;
+}
+
+.loginPhone__toggle .icon {
+  width: 30px;
+  height: 32px;
+}
+
+.loginPhone__field {
+  flex-direction: column;
+}
+
+.loginPhone__field > Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  height: 69px;
+  width: 430px;
+}
+
+.loginPhone__btn {
+  margin-top: 1rem;
+}
+
+.loginPhone__btn > Button:nth-child(1) {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 246px;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+
+.loginPhone__btn > Button:nth-child(1):hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.loginPhone__btn > button:nth-child(2) {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+.loginPhone__btn > button:nth-child(2):hover {
+  color: #b3b3b3;
+}
