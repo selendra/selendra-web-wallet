@@ -1,0 +1,162 @@
+.login {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #090D28;
+  color: #fff;
+}
+
+.login__container {
+  display: flex;
+}
+
+.login__section1 {
+  background: rgba(255, 255, 255, 6%);
+  max-width: 500px;
+  height: 100vh;
+  padding: 70px;
+}
+
+.login__title {
+  font-size: 52px;
+  font-weight: bold;
+}
+
+.login__description {
+  font-size: 24px;
+}
+
+.login__section2 {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  padding: 70px;
+}
+
+.login__row,
+.login__row2 {
+  display: flex;
+}
+
+.loginPhone__toggle > Button{
+  background: #181C35;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 65px;
+  height: 48px;
+  margin: 0 -1px;
+}
+
+.login__toggle > Button:nth-child(1){
+  border-radius: 8px 0 0 8px;
+}
+.login__toggle > Button:nth-child(2){
+  border-radius: 0 8px 8px 0;
+}
+
+.login__toggle > Button:hover{
+  transition: 0.1s;
+  background: transparent;
+  border-bottom: 2px solid #08B952;
+}
+
+.login__toggleActive {
+  border-bottom: 2px solid #08B952!important;
+}
+
+.login__btnSignup,
+.login__btnLogin {
+  flex: 0.5;
+}
+
+.login__btnLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.login__btnSignup > Button{
+  background-color: #181C35;
+  border: none;
+  border-radius: 8px;
+  color: #585D86;
+  width: 146px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.login__btnSignup > Button:hover {
+  background-color: #171931!important;
+  color: #fff!important;
+}
+
+.login__btnLogin > Button {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.login__row2 .login__title,
+.login__row2 .login__field {
+  flex: 0.5;
+}
+
+.login__row2 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.login__row2 .login__title {
+  margin-right: 20px;
+}
+
+.login__row2 .login__title > h1 {
+  font-size: 24px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.login__row2 .login__title > p  {
+  font-size: 42px;
+}
+
+.login__toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login__toggle > Button{
+  background: #181C35;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 65px;
+  height: 48px;
+  margin: 0 -1px;
+}
+
+.login__field .icon {
+  width: 30px;
+  height: 32px;
+}
+
+.login__field {
+  flex-direction: column;
+}
+
+/* 
+.loginPhone__input {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideLeft 1s ease-out .2s forwards;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+} */

@@ -1,18 +1,18 @@
-.loginPhone__toggle {
+.loginEmail__toggle {
   display: flex;
   justify-content: flex-end;
 }
 
-.loginPhone__field .icon {
+.loginEmail__field .icon {
   width: 30px;
   height: 32px;
 }
 
-.loginPhone__field {
+.loginEmail__field {
   flex-direction: column;
 }
 
-.loginPhone__input > Input {
+.loginEmail__input > Input {
   background-color: #181C35;
   color: #fff;
   font-size: 16px;
@@ -33,21 +33,20 @@
   transition: all .3s ease;
 }
 
-.loginPhone__input {
+.loginEmail__input {
   position: relative; 
 }
-
-.loginPhone__input .icon {
+.loginEmail__input .icon {
   position: absolute;
   top: 28px;
   left: 8px;
 }
 
-.loginPhone__btn {
+.loginEmail__btn {
   margin-top: 1rem;
 }
 
-.loginPhone__btn > Button:nth-child(1) {
+.loginEmail__btn > Button:nth-child(1) {
   background: #08B952;
   color: #fff;
   font-size: 16px;
@@ -58,12 +57,12 @@
   border-radius: 8px;
 }
 
-.loginPhone__btn > Button:nth-child(1):hover {
+.loginEmail__btn > Button:nth-child(1):hover {
   background: #057634;
   color: #b3b3b3;
 }
 
-.loginPhone__btn > button:nth-child(2) {
+.loginEmail__btn > button:nth-child(2) {
   background-color: transparent;
   color: #fff;
   border: none;
@@ -71,6 +70,6 @@
   font-weight: bold;
 }
 
-.loginPhone__btn > button:nth-child(2):hover {
+.loginEmail__btn > button:nth-child(2):hover {
   color: #1890ff;
 }

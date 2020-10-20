@@ -1,0 +1,169 @@
+.signup {
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  background-color: #090D28;
+}
+
+.signup__container {
+  display: flex;
+}
+
+.signup__section1 {
+  max-width: 500px;
+  min-height: 100vh;
+  padding: 70px;
+  background-color: rgba(255, 255, 255, 6%);
+}
+
+.signup__section1 > h1 {
+  font-size: 52px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.signup__section1 > p {
+  font-size: 24px;
+}
+
+.signup__section2 {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  padding: 70px;
+}
+
+.signup__section2 > Button {
+  display: flex;
+}
+
+.signup__row1,
+.signup__row2 {
+  display: flex;
+}
+
+.signup__btnSignup,
+.signup__btnLogin {
+  flex: 0.5;
+}
+
+.signup__btnLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.signup__btnSignup > Button {
+  background-color: #181C35;
+  border: none;
+  border-radius: 8px;
+  color: #585D86;
+  width: 146px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.signup__btnSignup > Button:hover {
+  background-color: #171931!important;
+  color: #fff!important;
+}
+
+.signup__btnLogin > Button {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.signup__row2 {
+  height: 100%;
+  align-items: center;
+}
+
+.signup__title,
+.signup__field {
+  flex: 0.5;
+}
+
+.signup__title {
+  margin-right: 20px;
+}
+
+.signup__title > h1 {
+  font-size: 24px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.signup__title > p {
+  font-size: 42px;
+}
+
+.icon {
+  width: 32px;
+  height: 30px;
+}
+
+.signup__toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signup__toggle > Button {
+  background: #181C35;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 65px;
+  height: 48px;
+  margin: 0 -1px;
+}
+.signup__toggle > Button:hover {
+  transition: 0.1s;
+  background: transparent;
+  border-bottom: 2px solid #08B952;
+}
+.signup__toggle > Button:nth-child(1) {
+  border-radius: 8px 0 0 8px;
+}
+.signup__toggle > Button:nth-child(2) {
+  border-radius: 0 8px 8px 0;
+}
+
+.signup__input > Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  height: 69px;
+  width: 430px;
+  padding-left: 46px;
+  font-weight: 600;
+}
+.signup__input > Input:hover {
+  border: 3px solid #08B952;
+  transition: .4s;
+}
+
+.signup__input {
+  position: relative;;
+}
+
+.signup__input .icon {
+  position: absolute;
+  left: 8px;
+  top: 28px;
+}
+
+.signup__btn > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
