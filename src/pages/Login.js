@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Login.css';
+import '../styles/auth/Login.css';
 import selendra from '../assets/Selendra.png';
 import { ReactComponent as LoginAI } from '../assets/Login-ai.svg';
 import { ReactComponent as Phone } from '../assets/phone.svg';
@@ -20,29 +20,29 @@ function Login() {
 
   return (
     <div className='login'>
-      <div className='login__container'>
-        <div className='login__section1'>
-          <img src={selendra} alt='sel_logo'/>
-          <p className='login__title'>SELENDRA</p>
-          <p className='login__description'>
-            A multi-use cases blockchain
-            super-app for the Internet 2.0
-          </p>
-          <LoginAI/>
-        </div>
-        <div className='login__section2'>
-          <div className='login__row'>
-            <div className='login__btnSignup'>
+      <div className='login__sectionOne'>
+        <img src={selendra} alt='sel_logo'/>
+        <p className='login__title'>SELENDRA</p>
+        <p className='login__description'>
+          A multi-use cases blockchain
+          super-app for the Internet 2.0
+        </p>
+        <LoginAI className='login__ai'/>
+      </div>
+      <div className='login__sectionTwo'>
+        <div className='login__container'>
+          <div className='login__left'>
+            <div className='login__headerSignup'>
               <Button>Sign Up</Button>
             </div>
-            <div className='login__btnLogin'>
-              <Button type="link">Login</Button>
-            </div>
-          </div>
-          <div className='login__row2'>
-            <div className='login__title'>
+            <div className='login__leftTitle'>
               <h1>Welcome Back</h1>
               <p>Login to your <br/>Personal Account</p>
+            </div>
+          </div>
+          <div className='login__right'>
+            <div className='login__headerLogin'>
+              <Button type="link">Login</Button>
             </div>
             <div className='login__field'>
               <div className='login__toggle'>

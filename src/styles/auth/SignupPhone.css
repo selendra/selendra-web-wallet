@@ -1,0 +1,90 @@
+.signupPhone__field {
+  width: 100%;
+}
+
+.signupPhone__field .icon {
+  width: 30px;
+  height: 32px;
+}
+
+.signupPhone__input > Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  height: 69px;
+  width: 100%;
+  padding-left: 46px;
+  font-weight: 600;
+}
+
+.signupPhone__input {
+  position: relative; 
+}
+
+.signupPhone__input .icon {
+  position: absolute;
+  top: 28px;
+  left: 8px;
+}
+.signupPhone__input > Input:hover {
+  border: 2px solid #08B952;
+}
+.signupPhone__input > Input:focus {
+  border: 2px solid #08B952;
+  transition: all .3s ease;
+}
+
+.signupPhone__btn {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signupPhone__btn > Button:nth-child(1) {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 85%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+.signupPhone__btn > Button:nth-child(1):hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+/* End **/
+
+
+
+
+/* responsive */
+/* SmartPhone */
+@media only screen and (max-width: 500px) {
+  
+}
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+  
+}
+/* Normal */
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+  
+}
+/* Large monitor */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  
+}
+/* Landscape */
+@media only screen and (max-height: 500px) {
+    
+}
+/* Widescreen */
+@media only screen and (min-width: 1920px) {
+  
+}

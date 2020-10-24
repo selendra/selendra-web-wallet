@@ -1,0 +1,118 @@
+.loginEmail__field {
+  width: 100%;
+}
+
+.loginEmail__field .icon {
+  width: 30px;
+  height: 32px;
+}
+
+.loginEmail__input {
+  position: relative; 
+}
+.loginEmail__input > Button {
+  width: 100%;
+  padding-right: 0;
+  color: #585D86;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.loginEmail__input .icon {
+  position: absolute;
+  top: 28px;
+  left: 8px;
+}
+.loginEmail__input > Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  height: 69px;
+  width: 100%;
+  padding-left: 46px;
+  font-weight: 600;
+}
+
+.loginEmail__input > Input:hover {
+  border: 2px solid #08B952;
+}
+.loginEmail__input > Input:focus {
+  border: 2px solid #08B952;
+  transition: all .3s ease;
+}
+
+.loginEmail__btn {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginEmail__btn > Button:nth-child(1) {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 85%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+.loginEmail__btn > Button:nth-child(1):hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.loginEmail__btn > Button:nth-child(2) {
+  background-color: transparent;
+  color: #585D86;
+  border: none;
+  font-size: 16px; 
+  font-weight: bold;
+}
+.loginEmail__btn > Button > span:nth-child(2) {
+  color: #40FF90;
+  margin-top: 20px;
+  margin-left: 8px;
+}
+.loginEmail__btn > Button:nth-child(2):hover {
+  color: #1890ff;
+}
+
+
+
+
+
+
+/* RESPONSIVE */
+/* SmartPhone */
+@media only screen and (max-width: 500px) {
+    
+}
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+    
+}
+/* Normal */
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+    
+}
+/* Large monitor */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  .loginEmail__btn > Button:nth-child(2) {
+    display: none;
+  }
+}
+/* Landscape */
+@media only screen and (max-height: 500px) {
+    
+}
+/* Widescreen */
+@media only screen and (min-width: 1920px) {
+  .loginEmail__btn > Button:nth-child(2) {
+    display: none;
+  }
+}

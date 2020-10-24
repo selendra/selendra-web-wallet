@@ -1,54 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../styles/auth/Signup.css';
 import selendra from '../assets/Selendra.png';
-import { ReactComponent as Login } from '../assets/Login-ai.svg';
+import { ReactComponent as LoginAI } from '../assets/Login-ai.svg';
 import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Email } from '../assets/email.svg';
-import { ReactComponent as Lock } from '../assets/lock.svg';
-import { Button, Input } from 'antd';
-import '../styles/Signup.css';
+import { Button } from 'antd';
+import SignupEmail from '../components/SignupEmail';
+import SignupPhone from '../components/SignupPhone';
 
 function SignUp() {
+  const [ isPhone, setIsPhone ] = useState(true);
+
+  const togglePhone = () => {
+    setIsPhone(true);
+  } 
+  const toggleEmail = () => {
+    setIsPhone(false);
+  } 
+
   return (
     <div className='signup'>
-      <div className='signup__container'>
-        <div className='signup__section1'>
-          <img src={selendra} alt='sel_logo'/>
-          <h1>SELENDRA</h1>
-          <p>A multi-use cases blockchain
-            super-app for the Internet 2.0
-          </p>
-          <Login/>
-        </div>
-        <div className='signup__section2'>
-          <div className='signup__row1'>
-            <div className='signup__btnSignup'>
+      <div className='signup__sectionOne'>
+        <img src={selendra} alt='sel_logo'/>
+        <p className='signup__title'>SELENDRA</p>
+        <p className='signup__description'>
+          A multi-use cases blockchain
+          super-app for the Internet 2.0
+        </p>
+        <LoginAI className='signup__ai'/>
+      </div>
+      <div className='signup__sectionTwo'>
+        <div className='signup__container'>
+          <div className='signup__left'>
+            <div className='signup__headerSignup'>
               <Button>Sign Up</Button>
             </div>
-            <div className='signup__btnLogin'>
-              <Button type='link'>Login</Button>
+            <div className='signup__leftTitle'>
+              <h1>Welcome Back</h1>
+              <p>Sign Up <br/>Personal Account</p>
             </div>
           </div>
-          <div className='signup__row2'>
-            <div className='signup__title'>
-              <h1>Welcome Back</h1>
-              <p>Sign Up<br/>Personal Account</p>
+          <div className='signup__right'>
+            <div className='signup__headerLogin'>
+              <Button type="link">Login</Button>
             </div>
             <div className='signup__field'>
               <div className='signup__toggle'>
-                <Button icon={<Phone className='icon'/>}></Button>
-                <Button icon={<Email className='icon'/>}></Button>
+                <Button 
+                  icon={<Phone className='icon'/>} 
+                  className={isPhone ? 'signup__toggleActive' : ''}
+                  onClick={togglePhone}  
+                ></Button>
+                <Button 
+                  icon={<Email className='icon'/>} 
+                  className={!isPhone ? 'signup__toggleActive' : ''}
+                  onClick={toggleEmail}
+                ></Button>
               </div>
-              <div className='signup__input'>
-                <Input placeHolder='Phone'></Input>
-                <Phone className='icon'/>
-              </div>
-              <div className='signup__input'>
-                <Input placeHolder='Password'></Input>
-                <Lock className='icon'/>
-              </div>
-              <div className='signup__btn'>
-                <Button block>Sign Up</Button>
-              </div>
+              { isPhone ? <SignupPhone className='phone__component'/> : <SignupEmail className='email__component'/> }
             </div>
           </div>
         </div>
