@@ -1,0 +1,148 @@
+.send {
+  padding: 90px;
+  width: 100%;
+  height: 100%;
+}
+
+.send__container {
+  /* width: 1534px; */
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.send__icon {
+  width: 32px;
+  height: 22px;
+}
+
+.send__field {
+  display: flex;
+  flex-direction: column;
+  flex: 0.4;
+}
+
+.send__field > p:nth-child(1) {
+  font-size: 32px;
+  color: #BDBEE0;
+  margin-bottom: 6px;
+}
+
+.send__field > p:nth-child(2) {
+  font-size: 24px;
+  color: #fff;
+  font-weight: lighter;
+}
+
+.send__field > p:nth-child(2) > span {
+  font-size: 32px;
+  color: #BDBEE0;
+  font-weight: 400;
+}
+
+.send__wallet {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.send__wallet > Input {
+  width: 270px;
+  height: 70px;
+  font-size: 18px;
+  color: #fff;
+  background: #181C35;
+  border: none;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.send__field > Input {
+  width: 100%x;
+  height: 70px;
+  font-size: 18px;
+  color: #fff;
+  background: #181C35;
+  border: none;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.send__field .textarea {
+  width: 100%;
+  height: 70px;
+  font-size: 18px;
+  color: #fff;
+  background: #181C35;
+  border: none;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.send__invoice {
+  flex: 0.4;
+  background-color: #181C35;
+  padding: 20px 40px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.send__invoice > p {
+  font-size: 32px;
+  color: #BDBEE0;
+}
+
+.send__invoiceWallet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.send__to > p:nth-child(1),
+.send__from > p:nth-child(1) {
+  font-size: 18px;
+  color: #08B952;
+}
+
+.send__to > p:nth-child(2),
+.send__from > p:nth-child(2) {
+  font-size: 18px;
+  color: #BDBEE0;
+  display: flex;
+}
+
+.send__to > p:nth-child(2) > img,
+.send__from > p:nth-child(2) >img {
+  width: 28px;
+  height: 28px;
+}
+
+.send__invoiceDetail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.send__invoiceLeft {
+  font-size: 18px;
+  color: #BDBEE0;
+}
+
+.send__invoiceRight {
+  font-size: 18px;
+  color: #08B952;
+}
+
+.send__btn > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+
+.send__btn > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}

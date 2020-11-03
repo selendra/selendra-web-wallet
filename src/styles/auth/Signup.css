@@ -44,7 +44,7 @@
   padding: 70px 20px;
 }
 
-.signup__headerSignup > Button {
+.signup__headerSignup > a > Button {
   background-color: #181C35;
   border: none;
   border-radius: 8px;
@@ -54,7 +54,7 @@
   font-size: 16px;
   font-weight: bold;
 }
-.signup__headerSignup > Button:hover {
+.signup__headerSignup > a > Button:hover {
   background-color: #171931;
   color: #fff;
 }
@@ -84,7 +84,7 @@
   flex-direction: column;
   align-items: flex-end;
 }
-.signup__headerLogin > Button {
+.signup__headerLogin > a > Button {
   color: #fff;
   font-size: 16px;
   font-weight: bold;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/auth/Login.css';
 import selendra from '../assets/Selendra.png';
 import { ReactComponent as LoginAI } from '../assets/Login-ai.svg';
@@ -33,7 +34,9 @@ function Login() {
         <div className='login__container'>
           <div className='login__left'>
             <div className='login__headerSignup'>
-              <Button>Sign Up</Button>
+              <Link to='/signup'>
+                <Button>Sign Up</Button>
+              </Link>
             </div>
             <div className='login__leftTitle'>
               <h1>Welcome Back</h1>
@@ -42,7 +45,9 @@ function Login() {
           </div>
           <div className='login__right'>
             <div className='login__headerLogin'>
-              <Button type="link">Login</Button>
+              <Link to='/login'>
+                <Button type="link">Login</Button>
+              </Link>
             </div>
             <div className='login__field'>
               <div className='login__toggle'>
