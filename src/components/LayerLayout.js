@@ -1,4 +1,4 @@
-import { Layout, Menu, Button } from 'antd';
+import { Layout, Menu, Button,  } from 'antd';
 import React, {
   useState
 } from 'react';
@@ -10,10 +10,11 @@ import { ReactComponent as Send } from '../assets/arrowup.svg';
 import { ReactComponent as Receive } from '../assets/arrowdown.svg';
 import { ReactComponent as Setting } from '../assets/cog.svg';
 
-
-
 import '../styles/LayerLayout.css';
 import logo from '../assets/Selendra.png';
+
+import Icon from '@ant-design/icons';
+
 
 function LayerLayout(props) {
   const { Header, Content, Footer, Sider } = Layout;
@@ -25,10 +26,17 @@ function LayerLayout(props) {
   }
 
   const location = useLocation();
+  const WalletIcon = props => <Icon component={Wallet} {...props} />;
+  const TransactionIcon = props => <Icon component={Transaction} {...props} />;
+  const SendIcon = props => <Icon component={Send} {...props} />;
+  const ReceiveIcon = props => <Icon component={Receive} {...props} />;
+  const SettingIcon = props => <Icon component={Setting} {...props} />;
+
+
   return (
-    <div>
+    <div className='layout'>
       <Layout className='ant-layout'>
-        <Sider width='290' collapsed={collapsed} className='ant-layout-sider'>
+        <Sider width='290px' collapsed={collapsed} className='ant-layout-sider'>
           <div className='layout__header'>
             <img src={logo} alt='logo' className='layout__logo'/>
             {!collapsed && (
@@ -36,27 +44,27 @@ function LayerLayout(props) {
             )}
           </div>
           <Menu mode='inline' className='ant-menu' defaultSelectedKeys={[location.pathname]}>
-            <Menu.Item key='/' className='ant-menu-item' icon={<Wallet className='iconZ'/>} style={collapsed && {paddingLeft: '0 20px'}}>
+            <Menu.Item key='/' className='layout__menuItem' icon={<WalletIcon/>}>
               <Link to='/'>
                 <span>Wallet</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key='/transaction' className='ant-menu-item' icon={<Transaction className='iconZ'/>} style={collapsed && {paddingLeft: '0 20px'}}>
+            <Menu.Item key='/transaction' className='layout__menuItem' icon={<TransactionIcon/>}>
               <Link to='/transaction'>
                 <span>Transaction</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key='/send' className='ant-menu-item' icon={<Send className='iconZ'/>} style={collapsed && {paddingLeft: '0 20px'}}>
+            <Menu.Item key='/send' className='layout__menuItem' icon={<SendIcon/>}>
               <Link to='/send'>
                 <span>Send</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key='/receive' className='ant-menu-item' icon={<Receive className='iconZ'/>} style={collapsed && {paddingLeft: '0 20px'}}>
+            <Menu.Item key='/receive' className='layout__menuItem' icon={<ReceiveIcon/>}>
               <Link to='/receive'>
                 <span>Receive</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key='/setting' className='ant-menu-item' icon={<Setting className='iconZ'/>} style={collapsed && {paddingLeft: '0 20px'}}>
+            <Menu.Item key='/setting' className='layout__menuItem' icon={<SettingIcon/>}>
               <Link to='/setting'>
                 <span>Setting</span>
               </Link>

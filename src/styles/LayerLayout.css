@@ -1,4 +1,4 @@
-.site-layout-background {
+/* .site-layout-background {
   background: #090D28!important;
 }
 
@@ -9,44 +9,21 @@
 }
 
 
-.layout__header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 0;
-}
 
 
-.layout__header > img {
-  width: 34px;
-  height: 34px;
-}
 
 
-.layout__header > span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #fff;
-  margin-left: 8px;
-}
 
 
-.layout__burger {
-  background-color: #181C35;
-  padding: 12px;
-  border-radius: 0 8px 8px 0;
-  cursor: pointer;
-}
 
 
-.ant-menu {
-  background-color: transparent!important;
-  border: none!important;
-}
+
+
+
+
 
 
 .ant-menu-item {
-  /* display: flex!important; */
   margin: 34px 0!important;
 }
 
@@ -66,20 +43,17 @@
   margin-left: 20px;
   display: inline;
 }
+ */
 
-.ant-menu-item-selected {
-  height: 64px!important;
-  font-weight: bold!important;
-  color: #fff!important;
-  background: #08B952!important;
-  border-radius: 8px;
-  box-shadow: 0 0 8px #08B952!important;
+.ant-layout,
+.ant-menu {
+  min-height: 100vh!important;
+  background: #181C35!important;
+  border: none!important;
 }
 
-.iconZ {
-  width: 40px!important;
-  height: 40px!important;
-  padding-top: 14px;
+.site-layout-background {
+  background: #090D28!important;
 }
 
 .layout__profile {
@@ -87,4 +61,52 @@
   color: #EDEEFF;
   float: right;
   margin-right: 40px;
+}
+
+.layout__menuItem {
+  display: flex!important;
+  align-items: center!important;
+  height: 64px!important;
+  font-weight: bold!important;
+  color: #fff!important;
+}
+
+.ant-menu-item-selected {
+  height: 64px!important;
+  /* font-weight: bold!important; */
+  color: #fff!important;
+  background: #08B952!important;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #08B952!important;
+}
+
+.layout__menuItem > span > a {
+  color: #fff;
+  
+}
+
+.layout__burger {
+  background-color: #181C35;
+  padding: 12px;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+.layout__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.layout__header > img {
+  width: 34px;
+  height: 34px;
+}
+
+.layout__header > span {
+  font-weight: bold;
+  font-size: 24px;
+  color: #fff;
+  margin-left: 8px;
 }

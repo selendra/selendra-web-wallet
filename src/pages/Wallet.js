@@ -4,6 +4,7 @@ import '../styles/Wallet.css';
 import { ReactComponent as Warning } from '../assets/warning.svg';
 import { ReactComponent as Add } from '../assets/plus.svg';
 import sel from '../assets/Selendra.png';
+import AxiosInstance from '../helpers/AxiosInstance';
 
 function Wallet() {
   const [visible, setVisi] = useState(false);
@@ -84,6 +85,11 @@ function Wallet() {
       tags: ['cool', 'teacher'],
     },
   ];
+
+  useEffect(() => {
+    AxiosInstance().get('/portforlio')
+  }, [])
+
   return (
     <div className='wallet'>
       <div className='wallet__container'>
