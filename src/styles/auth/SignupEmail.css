@@ -52,6 +52,9 @@
   border: none;
   border-radius: 8px;
 }
+.signupEmail__btn > Button:nth-child(1) > span {
+
+}
 .signupEmail__btn > Button:nth-child(1):hover {
   background: #057634;
   color: #b3b3b3;

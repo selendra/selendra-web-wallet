@@ -1,23 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/auth/LoginEmail.css';
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import { ReactComponent as Email } from '../assets/email.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
+import AxiosInstance from '../helpers/AxiosInstance';
+import { useHistory } from 'react-router-dom';
+import Cookie from 'js-cookie';
 
 function LoginEmail() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
+  const handleLogin = () => {
+    setLoading(true);
+    AxiosInstance().post('/loginbyemail', {
+      email,
+      password
+    })
+    .then((res) => {
+      if(res.data.token) {
+        message.success('Login Successfully');
+        Cookie.set('token', res.data.token);
+        history.push('/');
+      } else if(res.data.message) {
+        message.error(res.data.message);
+      } else {
+        message.error(res.data.error.message);
+      }
+      setLoading(false);
+    })
+    .catch((err) => {
+      message.error('Something went wrong at our end');
+    })
+  }
+
   return (
     <div className='loginEmail__field'>
       <div className='loginEmail__input'>
-        <Input placeHolder='Email'></Input>
+        <Input 
+          placeHolder='Email' 
+          onChange={ e => setEmail(e.target.value) }
+          value={email}
+        ></Input>
         <Email className='icon'/>
       </div>
       <div className='loginEmail__input'>
-        <Input placeHolder='Password'></Input>
+        <Input 
+          placeHolder='Password'
+          type='password'
+          onChange={ e => setPassword(e.target.value) } 
+          value={password}
+        ></Input>
         <Lock className='icon'/>
         <Button type='link'>Forget Password ?</Button>
       </div>
       <div className='loginEmail__btn'>
-        <Button>Login</Button>
+        <Button loading={loading} onClick={handleLogin}>Login</Button>
         <Button>Don't have account?<span>Sign Up</span></Button>
       </div>
     </div>

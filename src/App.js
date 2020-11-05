@@ -14,44 +14,46 @@ import Send from './pages/Send';
 import Receive from './pages/Receive';
 import Setting from './pages/Setting';
 import Getwallet from './pages/Getwallet';
+import Verifphone from './pages/Verifphone';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path='/login' component={Login}></Route>
-          <Route path='/signup' component={SignUp}></Route>
-          {/* <Route path='/' component={Wallet}>
+          <Route path='/' exact component={Wallet}>
             <LayerLayout>
               <Wallet />
             </LayerLayout>
-          </Route> */}
-          {/* <Route path='/transaction' component={Transaction}>
+          </Route>
+          <Route path='/login' component={Login}></Route>
+          <Route path='/signup' component={SignUp}></Route>
+          <Route path='/verifyphone' component={Verifphone}></Route>
+          <Route path='/transaction' component={Transaction}>
             <LayerLayout>
               <Transaction />
             </LayerLayout>
-          </Route> */}
-          {/* <Route path='/send' component={Send}>
+          </Route>
+          <Route path='/send' component={Send}>
             <LayerLayout>
               <Send />
             </LayerLayout>
-          </Route> */}
+          </Route>
           <Route path='/receive' component={Receive}>
             <LayerLayout>
               <Receive />
             </LayerLayout>
           </Route>
-          {/* <Route path='/setting' component={Setting}>
+          <Route path='/setting' component={Setting}>
             <LayerLayout>
               <Setting />
             </LayerLayout>
-          </Route> */}
-          {/* <Route path='/getwallet' component={Getwallet}>
+          </Route>
+          <Route path='/getwallet' component={Getwallet}>
             <LayerLayout>
               <Getwallet />
             </LayerLayout>
-          </Route> */}
+          </Route>
         </Switch>
       </div>
     </Router>

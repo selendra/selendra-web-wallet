@@ -61,6 +61,11 @@
   border: none;
   border-radius: 8px;
 }
+
+.loginEmail__btn > Button:nth-child(1) > span {
+  display: inline;
+}
+
 .loginEmail__btn > Button:nth-child(1):hover {
   background: #057634;
   color: #b3b3b3;

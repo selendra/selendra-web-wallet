@@ -63,6 +63,11 @@
   border: none;
   border-radius: 8px;
 }
+
+.loginPhone__btn > Button:nth-child(1) > span {
+  display: inline;
+}
+
 .loginPhone__btn > Button:nth-child(1):hover {
   background: #057634;
   color: #b3b3b3;
