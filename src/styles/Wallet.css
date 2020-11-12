@@ -35,9 +35,9 @@
   font-weight: lighter;
 }
 
-.wallet__modalButton > Button {
+.wallet__modalButton > a >Button {
   margin-top: 3rem;
-  background: #08B952;
+  background: #08B952!important;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -47,7 +47,7 @@
   border-radius: 8px;
 }
 
-.wallet__modalButton > Button:hover {
+.wallet__modalButton > a > Button:hover {
   background: #057634;
   color: #b3b3b3;
 }
@@ -61,6 +61,30 @@
 
 .wallet__container {
   padding: 90px 50px;
+}
+
+.wallet__chartContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.wallet__chartColOne {
+  margin-top: 10px;
+  flex: 0.9;
+}
+
+.wallet__chartColTwo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wallet__chartColTwo > p {
+  font-size: 24px;
+  font-weight: 600;
+  color: #08B952;
 }
 
 /* Change header text and background color */
@@ -132,7 +156,7 @@
 }
 
 .wallet__chart {
-  width: 452px;
+  width: 600px;
   height: 304px;
   background: #181C35;
   border-radius: 8px;

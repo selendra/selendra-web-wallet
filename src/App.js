@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,8 +15,23 @@ import Receive from './pages/Receive';
 import Setting from './pages/Setting';
 import Getwallet from './pages/Getwallet';
 import Verifphone from './pages/Verifphone';
+import Userverify from './pages/Userverify';
+import AxiosInstance from './helpers/AxiosInstance';
+import { useStateValue } from './StateProvider';
 
 function App() {
+  const [state, dispatch] = useStateValue();
+
+  // useEffect(() => {
+  //   AxiosInstance().get('/userprofile')
+  //   .then((res) => {
+  //     dispatch({
+  //       type: 'SET_USER',
+  //       user: res.data
+  //     })
+  //   })
+  // }, []);
+
   return (
     <Router>
       <div className="App">
@@ -52,6 +67,11 @@ function App() {
           <Route path='/getwallet' component={Getwallet}>
             <LayerLayout>
               <Getwallet />
+            </LayerLayout>
+          </Route>
+          <Route path='/userverify' component={Userverify}>
+            <LayerLayout>
+              <Userverify />
             </LayerLayout>
           </Route>
         </Switch>

@@ -52,6 +52,10 @@
   border: none!important;
 }
 
+.ant-layout-sider-children {
+  background: #181C35!important;
+}
+
 .site-layout-background {
   background: #090D28!important;
 }
@@ -61,6 +65,10 @@
   color: #EDEEFF;
   float: right;
   margin-right: 40px;
+}
+
+.layout__profile > Button {
+  margin-top: 10px;
 }
 
 .layout__menuItem {
@@ -82,7 +90,10 @@
 
 .layout__menuItem > span > a {
   color: #fff;
-  
+}
+
+.layout__menuItem > span > a:hover {
+  color: #B2B2B2;
 }
 
 .layout__burger {
@@ -109,4 +120,8 @@
   font-size: 24px;
   color: #fff;
   margin-left: 8px;
+}
+
+.layout__headerProfile {
+  display: flex;
 }

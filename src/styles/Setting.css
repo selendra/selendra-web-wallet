@@ -55,23 +55,23 @@
   margin-right: 2rem;
 }
 
-.setting__right > p:nth-child(1) {
+.setting__profileInfo > p:nth-child(1) {
   margin-top: -2rem;
   font-size: 24px;
 }
 
-.setting__right > p:nth-child(2) {
+.setting__profileInfo > p:nth-child(2) {
   margin-top: 2rem;
   margin-left: 3rem;
   font-size: 32px;
 }
 
-.setting__right > p:nth-child(3) {
+.setting__profileInfo > p:nth-child(3) {
   margin-left: 3rem;
   font-size: 32px;
 }
 
-.setting__right > p:nth-child(4) {
+.setting__profileInfo > p:nth-child(4) {
   margin-left: 3rem;
   font-size: 32px;
 }
@@ -110,4 +110,79 @@
 .setting__profile > p {
   font-size: 32px;
   margin-top: 1rem;
+}
+
+.setting__changePass {
+  padding: 0 10%
+}
+
+.setting__changePass > p {
+  font-size: 32px;
+}
+
+.setting__changePass > Input {
+  width: 100%x;
+  height: 70px;
+  font-size: 18px;
+  color: #fff;
+  background: #0D1126;
+  border: none;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.setting__btnChangePass {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.setting__btnChangePass > Button {
+  background: #08B952;
+  color: #fff;
+  width: 80%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+.setting__btnChangePass > Button > span,
+.setting__btnChangePin > Button > span { 
+  font-size: 18px;
+}
+.setting__btnChangePass > Button:hover,
+.setting__btnChangePin > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.setting__changePin > p {
+  font-size: 32px;
+}
+
+.setting__changePinContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.setting__changePinContainer > div {
+  margin: 20px 0;
+}
+
+.setting__changePinContainer > div > p {
+  font-size: 18px;
+}
+
+.setting__btnChangePin > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
 }

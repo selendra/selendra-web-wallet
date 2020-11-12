@@ -1,111 +1,147 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, Tag, Table, Space } from 'antd';
+import { Button, Modal, Tag, Table, Space, Spin } from 'antd';
 import '../styles/Wallet.css';
 import { ReactComponent as Warning } from '../assets/warning.svg';
 import { ReactComponent as Add } from '../assets/plus.svg';
 import sel from '../assets/Selendra.png';
 import AxiosInstance from '../helpers/AxiosInstance';
+import { Doughnut } from 'react-chartjs-2';
+import { Link } from 'react-router-dom';
+import { LoadingOutlined } from '@ant-design/icons';
+
 
 function Wallet() {
+  const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
+  const [datacollection, setdatacollection] = useState({});
   const [visible, setVisi] = useState(false);
+  const [payload, setPayload] = useState({
+    portfolio: null,
+    loading: true
+  });
+
   const modalStyle = {
     color: '#fff',
     background: '#181C35',
     borderRadius: '8px',
     textAlign: 'center'
   }
+
   const columns = [
     {
-      title: 'Name',
+      title: 'Asset',
       dataIndex: 'name',
       key: 'name',
+      render: text => <span>SEL</span>,
+    },
+    {
+      title: 'Amount',
+      key: 'tags',
+      dataIndex: 'amount',
       render: text => <span>{text}</span>,
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: 'Date',
+      key: 'tags',
+      dataIndex: 'created_at',
+      render: text => <span>{(text)}</span>,
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: 'From',
+      dataIndex: 'sender',
+      render: text => <span>{(text)}</span>,
     },
     {
-      title: 'Tags',
+      title: 'To',
+      key: 'tags',
+      dataIndex: 'destination',
+      render: text => <span>{(text)}</span>,
+    },
+    {
+      title: 'Status',
       key: 'tags',
       dataIndex: 'tags',
-      render: tags => (
-        <>
-          {tags.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: (text, record) => (
-        <Space size="middle">
-          <span>Invite {record.name}</span>
-          <span>Delete</span>
-        </Space>
-      ),
-    },
-  ];
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
+      render: text => <span>complete</span>,
     },
   ];
 
   useEffect(() => {
+    filldata();
+  }, [])
+
+  const filldata = () => {
+    const data = {
+      
+    }
+  }
+
+  useEffect(() => {
     AxiosInstance().get('/portforlio')
+    .then((res) => {
+      const portfolio = res.data;
+      if(portfolio.error) {
+        setVisi(true)
+      } else {
+        let balance = '';
+        setPayload({
+          loading: false,
+          portfolio: res.data
+        }); 
+        balance = res.data.data.balance;
+        setdatacollection({
+          labels: ['SEL'],
+          datasets: [
+            {
+              label: 'Portfolio',
+              data: [balance],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
+        })
+      }
+    })
   }, [])
 
   return (
     <div className='wallet'>
+      {payload.loading && (<Spin indicator={antIcon} />)}
+      {!payload.loading && (
       <div className='wallet__container'>
         <div className='wallet__rowOne'>
           <div className='wallet__chart'>
             <span>Total Balance</span>
-            
+            <div className='wallet__chartContainer'>
+              <div className='wallet__chartColOne'>
+                <Doughnut data={datacollection} />
+              </div>
+              <div className='wallet__chartColTwo'>
+                <p>SEL: {payload.portfolio.data.balance}</p>
+              </div>
+            </div>
           </div>
           <div className='wallet__asset'>
             <div className='wallet__assetContainer'>
               <div className='wallet__onceAsset'>
                 <img src={sel} alt='sel' />
-                <span>1118</span>
+                <span>{payload.portfolio.data.balance}</span>
                 <span>SEL</span>
               </div>
-              
             </div>
           </div>
           <div className='wallet__addAsset'>
@@ -117,15 +153,13 @@ function Wallet() {
           <Table 
             className='ant-table-content'
             columns={columns} 
-            dataSource={data}
+            // dataSource={}
             pagination={false}
           />
         </div>
 
 
-
-
-        {/* <Modal
+        <Modal
           title=""
           visible={visible}
           footer={null}
@@ -147,8 +181,9 @@ function Wallet() {
               <Button>Get Wallet</Button>
             </Link>
           </div>
-        </Modal> */}
+        </Modal>
       </div>
+      )}
     </div>
   )
 }

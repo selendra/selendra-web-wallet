@@ -8,3 +8,7 @@
 *:after {
   box-sizing: border-box;
 }
+
+.ant-spin {
+  width: 100%;
+}

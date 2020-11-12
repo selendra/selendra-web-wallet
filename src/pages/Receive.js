@@ -1,10 +1,16 @@
 import { Button, Table, Tag, Space } from 'antd';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/Receive.css';
 import { ReactComponent as Copy } from '../assets/copy.svg';
 import QRCode from 'qrcode.react';
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import AxiosInstance from '../helpers/AxiosInstance';
+import axios from 'axios';
 
 function Receive() {
+  const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
   const modalStyle = {
     color: '#fff',
     background: '#181C35',
@@ -13,73 +19,39 @@ function Receive() {
   }
   const columns = [
     {
-      title: 'Name',
+      title: 'Asset',
       dataIndex: 'name',
       key: 'name',
+      render: text => <span>SEL</span>,
+    },
+    {
+      title: 'Amount',
+      key: 'tags',
+      dataIndex: 'amount',
       render: text => <span>{text}</span>,
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: 'Date',
+      key: 'tags',
+      dataIndex: 'created_at',
+      render: text => <span>{Timecon(text)}</span>,
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: 'From',
+      dataIndex: 'sender',
+      render: text => <span>{sliceStr(text)}</span>,
     },
     {
-      title: 'Tags',
+      title: 'To',
+      key: 'tags',
+      dataIndex: 'destination',
+      render: text => <span>{sliceStr(text)}</span>,
+    },
+    {
+      title: 'Status',
       key: 'tags',
       dataIndex: 'tags',
-      render: tags => (
-        <>
-          {tags.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: (text, record) => (
-        <Space size="middle">
-          <span>Invite {record.name}</span>
-          <span>Delete</span>
-        </Space>
-      ),
-    },
-  ];
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
+      render: text => <span>complete</span>,
     },
   ];
 
@@ -95,21 +67,63 @@ function Receive() {
     alert("Copied the text: " + copyText.value);
   }
 
+  const sliceStr = (str) => {
+    if(str !== undefined) {
+      const first = str.slice(0, 10);
+      const last = str.slice(-2);
+      return (`${first}...${last}`);
+    }
+  }
+
+  const Timecon = (time) => {
+    const d = new Date(time);
+    const dtf = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }); 
+    const [{ value: mo },,{ value: da },,{ value: ye }] = dtf.formatToParts(d);
+    const h = d.getHours();
+    const m = d.getMinutes();
+    return (`${h}:${m}, ${mo} ${da} ${ye}`);
+  }
+
+  const [payload, setPayload] = useState({
+    trx: null,
+    user: null,
+    portfolio: null,
+    loading: true
+  })
+
+  useEffect(async() => {
+    const reqOne = AxiosInstance().get('/trx-history');
+    const reqTwo = AxiosInstance().get('/userprofile');
+    const reqThree = AxiosInstance().get('/portforlio');
+
+    await axios.all([reqOne, reqTwo, reqThree])
+    .then(axios.spread((...res) => {
+      setPayload({
+        trx: res[0].data,
+        user: res[1].data,
+        portfolio: res[2].data,
+        loading: false
+      })
+    }))
+  }, [])
+
   return (
     <div className='receive'>
+      {payload.loading && (<Spin indicator={antIcon} />)}
+      {!payload.loading && (
       <div className='receive__container'>
         <div className='receive__upper'>
           <div className='receive__qr'>
             <p>Address</p>
             <div className='receive__copy'>
               <Copy className='receive__btnCopy' onClick={onCopy}/>
-              <p>xxxxxxxxxxxxxxx</p>
+              <p>{sliceStr(payload.user.wallet)}</p>
             </div>
             <p>QR Code</p>
-            <input type="text" id="receive__wallet" value=''/>
+            <input type="text" id="receive__wallet" readOnly value={payload.user.wallet}/>
             <div className='receive__qrContainer'>
               <div className='receive__qrPic'>
-                <QRCode value="http://facebook.github.io/react/"/>
+                <QRCode value={payload.user.wallet}/>
               </div>
               <div className='receive__qrDescription'>
                 <p>
@@ -123,7 +137,7 @@ function Receive() {
             <p>Total Balance</p>
             <div className='receive__total'>
               <div className='receive__totalBalance'>
-                <span>SEL: 1152</span>
+                <span>SEL: {payload.portfolio.data.balance}</span>
               </div>
               <div className='receive__chart'>
 
@@ -136,11 +150,12 @@ function Receive() {
           <Table 
             className='ant-table-content'
             columns={columns} 
-            dataSource={data}
+            dataSource={payload.trx}
             pagination={false}
           />
         </div>
       </div>
+      )}
     </div>
   )
 }

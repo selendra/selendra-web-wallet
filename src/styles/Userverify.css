@@ -1,0 +1,51 @@
+.userverify {
+
+}
+
+.userverify__container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.userverify__container > Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  height: 69px;
+  width: 100%;
+  font-weight: 600;
+}
+
+.userverify__container > p {
+  font-size: 24px;
+  color: #BDBEE0;
+}
+
+.userverify__btnVerify {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.userverify__btnVerify > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 480px;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+
+.userverify__btnVerify > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.ant-select {
+  width: 100%!important;
+}

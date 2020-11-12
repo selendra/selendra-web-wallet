@@ -5,12 +5,15 @@ import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
 import AxiosInstance from '../helpers/AxiosInstance';
 import Cookie from 'js-cookie';
+import { useHistory } from 'react-router-dom';
 
 function SignupPhone() {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCon, setPasswordCon] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
 
   const handleSignup = async () => {
     if(password !== passwordCon) {
@@ -25,6 +28,7 @@ function SignupPhone() {
         if(res.data.message === "Successfully registered!") {
           message.success(res.data.message);
           Cookie.set('phone', phone);
+          history.push('/verifyphone');
         } else {
           message.error(res.data.message);
         }

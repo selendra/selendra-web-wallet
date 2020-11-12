@@ -9,11 +9,14 @@ import { ReactComponent as Transaction } from '../assets/transaction.svg';
 import { ReactComponent as Send } from '../assets/arrowup.svg';
 import { ReactComponent as Receive } from '../assets/arrowdown.svg';
 import { ReactComponent as Setting } from '../assets/cog.svg';
+import { ReactComponent as Exit } from '../assets/exit.svg';
 
 import '../styles/LayerLayout.css';
 import logo from '../assets/Selendra.png';
 
 import Icon from '@ant-design/icons';
+
+import { useStateValue } from '../StateProvider';
 
 
 function LayerLayout(props) {
@@ -25,6 +28,10 @@ function LayerLayout(props) {
     setCollapsed(!collapsed);
   }
 
+  const handleLogout = () => {
+
+  }
+
   const location = useLocation();
   const WalletIcon = props => <Icon component={Wallet} {...props} />;
   const TransactionIcon = props => <Icon component={Transaction} {...props} />;
@@ -32,6 +39,9 @@ function LayerLayout(props) {
   const ReceiveIcon = props => <Icon component={Receive} {...props} />;
   const SettingIcon = props => <Icon component={Setting} {...props} />;
 
+  const [state, dispatch] = useStateValue();
+
+  // const username = state.user.first_name + state.user.mid_name + state.user.last_name;
 
   return (
     <div className='layout'>
@@ -74,7 +84,12 @@ function LayerLayout(props) {
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <Burger onClick={toggle} className='layout__burger'/>
-            <span className='layout__profile'>Piset Heang</span>
+              { !state.loading && (
+                <>
+                  <span className='layout__profile'>{state.user.first_name + state.user.mid_name + state.user.last_name}</span>
+                  {/* <Button type='text' onClick={handleLogout}><Exit /></Button> */}
+                </>
+              )}
           </Header>
           <Content
             className="site-layout-background"
