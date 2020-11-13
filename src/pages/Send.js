@@ -5,7 +5,6 @@ import { ReactComponent as To } from '../assets/arrowright.svg';
 import sel from '../assets/Selendra.png';
 import AxiosInstance from '../helpers/AxiosInstance';
 import PinField from "react-pin-field";
-import { useStateValue } from '../StateProvider';
 import { LoadingOutlined } from '@ant-design/icons';
 
 function Send() {

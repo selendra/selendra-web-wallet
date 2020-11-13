@@ -10,6 +10,7 @@ function Setting() {
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
   const [loading, setLoading] = useState(false);
+  const [loadingScreen, setLoadingScreen] = useState(true);
   const [user, setUser] = useState([]);
   const [current_password, setCurrentPass] = useState('');
   const [new_password, setNewPass] = useState('');
@@ -25,7 +26,8 @@ function Setting() {
   useEffect(() => {
     AxiosInstance().get('/userprofile')
     .then((res) => {
-      setUser(res.data)
+      setUser(res.data);
+      setLoadingScreen(false);
     })
   }, [])
 
@@ -73,18 +75,10 @@ function Setting() {
     return setChangePinField(true);
   }
 
-  const sliceStr = (str) => {
-    if(str !== undefined) {
-      const first = str.slice(0, 1);
-      const last = str.slice(-1);
-      return (`${first}...${last}`);
-    }
-  }
-
   return (
     <div className='setting'>
-      {loading && (<Spin indicator={antIcon} />)}
-      {!loading && (
+      {loadingScreen && (<Spin indicator={antIcon} />)}
+      {!loadingScreen && (
       <div className='setting__container'>
         <div className='setting__left'>
           <div className='setting__profile'>
@@ -121,17 +115,17 @@ function Setting() {
           <div className='setting__changePass'>
             <p>Change Password</p>
             <Input 
-              placeHolder='Current Password'
+              placeholder='Current Password'
               onChange={ e => setCurrentPass(e.target.value) }
               value={current_password}
             ></Input>
             <Input 
-              placeHolder='New Password'
+              placeholder='New Password'
               onChange={ e => setNewPass(e.target.value) }
               value={new_password}
             ></Input>
             <Input 
-              placeHolder='Confirm New Password'
+              placeholder='Confirm New Password'
               onChange={ e => setNewPass1(e.target.value) }
               value={new_password1}
             ></Input>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, Tag, Table, Space, Spin } from 'antd';
+import { Button, Modal, Table, Spin } from 'antd';
 import '../styles/Wallet.css';
 import { ReactComponent as Warning } from '../assets/warning.svg';
 import { ReactComponent as Add } from '../assets/plus.svg';
@@ -8,17 +8,11 @@ import AxiosInstance from '../helpers/AxiosInstance';
 import { Doughnut } from 'react-chartjs-2';
 import { Link } from 'react-router-dom';
 import { LoadingOutlined } from '@ant-design/icons';
+import axios from 'axios';
 
 
 function Wallet() {
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
-
-  const [datacollection, setdatacollection] = useState({});
-  const [visible, setVisi] = useState(false);
-  const [payload, setPayload] = useState({
-    portfolio: null,
-    loading: true
-  });
 
   const modalStyle = {
     color: '#fff',
@@ -31,63 +25,76 @@ function Wallet() {
     {
       title: 'Asset',
       dataIndex: 'name',
-      key: 'name',
       render: text => <span>SEL</span>,
     },
     {
       title: 'Amount',
-      key: 'tags',
       dataIndex: 'amount',
       render: text => <span>{text}</span>,
     },
     {
       title: 'Date',
-      key: 'tags',
       dataIndex: 'created_at',
-      render: text => <span>{(text)}</span>,
+      render: text => <span>{Timecon(text)}</span>,
     },
     {
       title: 'From',
       dataIndex: 'sender',
-      render: text => <span>{(text)}</span>,
+      render: text => <span>{sliceStr(text)}</span>,
     },
     {
       title: 'To',
-      key: 'tags',
       dataIndex: 'destination',
-      render: text => <span>{(text)}</span>,
+      render: text => <span>{sliceStr(text)}</span>,
     },
     {
       title: 'Status',
-      key: 'tags',
       dataIndex: 'tags',
       render: text => <span>complete</span>,
     },
   ];
-
-  useEffect(() => {
-    filldata();
-  }, [])
-
-  const filldata = () => {
-    const data = {
-      
+// Function
+  const Timecon = (time) => {
+    const d = new Date(time);
+    const dtf = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }); 
+    const [{ value: mo },,{ value: da },,{ value: ye }] = dtf.formatToParts(d);
+    const h = d.getHours();
+    const m = d.getMinutes();
+    return (`${h}:${m}, ${mo} ${da} ${ye}`);
+  }
+  const sliceStr = (str) => {
+    if(str !== undefined) {
+      const first = str.slice(0, 10);
+      const last = str.slice(-2);
+      return (`${first}...${last}`);
     }
   }
+// End Function
+  const [datacollection, setdatacollection] = useState({});
+  const [visible, setVisi] = useState(false);
+  const [payload, setPayload] = useState({
+    portfolio: null,
+    trx: null,
+    loading: true
+  });
 
   useEffect(() => {
-    AxiosInstance().get('/portforlio')
-    .then((res) => {
-      const portfolio = res.data;
+    const reqOne = AxiosInstance().get('/trx-history');
+    const reqTwo = AxiosInstance().get('/portforlio');
+
+    axios.all([reqOne, reqTwo])
+    .then(axios.spread((...res) => {
+      const portfolio = res[1].data;
       if(portfolio.error) {
         setVisi(true)
       } else {
         let balance = '';
         setPayload({
           loading: false,
-          portfolio: res.data
+          trx: res[0].data,
+          portfolio: res[1].data,
         }); 
-        balance = res.data.data.balance;
+        balance = res[1].data.data.balance;
         setdatacollection({
           labels: ['SEL'],
           datasets: [
@@ -115,7 +122,7 @@ function Wallet() {
           ],
         })
       }
-    })
+    }))
   }, [])
 
   return (
@@ -153,37 +160,36 @@ function Wallet() {
           <Table 
             className='ant-table-content'
             columns={columns} 
-            // dataSource={}
+            dataSource={payload.trx}
             pagination={false}
+            rowKey={record => record}
           />
         </div>
-
-
-        <Modal
-          title=""
-          visible={visible}
-          footer={null}
-          closable={false}
-          centered
-          bodyStyle={modalStyle}
-          width={880}
-        >
-          <p className='wallet__modalTitle'>
-            <Warning className='wallet__modalIcon'/> Warning
-          </p>
-          <div className='wallet__modalContainer'>
-            <div className='wallet__modalDescription'>
-              <p>Look like you don't have wallet yet!!</p>
-            </div>
-          </div>
-          <div className='wallet__modalButton'>
-            <Link to='/getwallet'>
-              <Button>Get Wallet</Button>
-            </Link>
-          </div>
-        </Modal>
       </div>
       )}
+      <Modal
+        title=""
+        visible={visible}
+        footer={null}
+        closable={false}
+        centered
+        bodyStyle={modalStyle}
+        width={880}
+      >
+        <p className='wallet__modalTitle'>
+          <Warning className='wallet__modalIcon'/> Warning
+        </p>
+        <div className='wallet__modalContainer'>
+          <div className='wallet__modalDescription'>
+            <p>Look like you don't have wallet yet!!</p>
+          </div>
+        </div>
+        <div className='wallet__modalButton'>
+          <Link to='/getwallet'>
+            <Button>Get Wallet</Button>
+          </Link>
+        </div>
+      </Modal>
     </div>
   )
 }

@@ -7,7 +7,7 @@ import { ReactComponent as Thick } from '../assets/thick.svg';
 import { ReactComponent as X } from '../assets/x.svg';
 import { ReactComponent as Information } from '../assets/information.svg';
 import AxiosInstance from '../helpers/AxiosInstance';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function Getwallet() {
   const [visible, setVisi] = useState(false);
@@ -116,9 +116,9 @@ function Getwallet() {
             </div>
           </div>
           <div className='getwallet__modalButton'>
-            {/* <Link to='/getwallet'> */}
+            <Link to='/verifyphone'>
               <Button>Verify Phone</Button>
-            {/* </Link> */}
+            </Link>
           </div>
         </Modal>
       {/* Modal */}
@@ -148,7 +148,7 @@ function Getwallet() {
             </div>
           </div>
           <div className='getwallet__modalButton'>
-              <Button onClick={handleSavePdf}>Save PDF</Button>
+            <Button onClick={handleSavePdf}>Save PDF</Button>
           </div>
         </Modal>
       </div>

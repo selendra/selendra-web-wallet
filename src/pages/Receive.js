@@ -1,4 +1,4 @@
-import { Button, Table, Tag, Space } from 'antd';
+import { Table} from 'antd';
 import React, {useEffect, useState} from 'react';
 import '../styles/Receive.css';
 import { ReactComponent as Copy } from '../assets/copy.svg';
@@ -11,12 +11,6 @@ import axios from 'axios';
 function Receive() {
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
-  const modalStyle = {
-    color: '#fff',
-    background: '#181C35',
-    borderRadius: '8px',
-    textAlign: 'center'
-  }
   const columns = [
     {
       title: 'Asset',
@@ -91,12 +85,12 @@ function Receive() {
     loading: true
   })
 
-  useEffect(async() => {
+  useEffect(() => {
     const reqOne = AxiosInstance().get('/trx-history');
     const reqTwo = AxiosInstance().get('/userprofile');
     const reqThree = AxiosInstance().get('/portforlio');
 
-    await axios.all([reqOne, reqTwo, reqThree])
+    axios.all([reqOne, reqTwo, reqThree])
     .then(axios.spread((...res) => {
       setPayload({
         trx: res[0].data,
@@ -152,6 +146,7 @@ function Receive() {
             columns={columns} 
             dataSource={payload.trx}
             pagination={false}
+            rowKey={record => record}
           />
         </div>
       </div>

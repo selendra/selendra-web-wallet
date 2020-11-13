@@ -96,7 +96,8 @@
   justify-content: flex-end;
 }
 
-.getwallet__modalButton > Button {
+.getwallet__modalButton > Button,
+.getwallet__modalButton > a > Button {
   margin-top: 3rem;
   margin-right: 24px;
   background: #08B952;

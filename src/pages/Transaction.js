@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Transaction.css';
-import { Tag, Space, Table, Spin } from 'antd'
+import { Table, Spin } from 'antd'
 import AxiosInstance from '../helpers/AxiosInstance';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -90,6 +90,7 @@ function Transaction() {
           columns={columns} 
           dataSource={payload.trx}
           pagination={false}
+          rowKey={record => record}
         />
       </div>
       )}

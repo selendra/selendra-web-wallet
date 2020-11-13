@@ -1,8 +1,9 @@
-import { Layout, Menu, Button,  } from 'antd';
+import { Layout, Menu, Button } from 'antd';
 import React, {
   useState
 } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { useLocation, Link, useHistory } from 'react-router-dom';
 import { ReactComponent as Burger } from '../assets/menu.svg';
 import { ReactComponent as Wallet } from '../assets/wallet.svg';
 import { ReactComponent as Transaction } from '../assets/transaction.svg';
@@ -13,14 +14,12 @@ import { ReactComponent as Exit } from '../assets/exit.svg';
 
 import '../styles/LayerLayout.css';
 import logo from '../assets/Selendra.png';
-
 import Icon from '@ant-design/icons';
-
-import { useStateValue } from '../StateProvider';
 
 
 function LayerLayout(props) {
-  const { Header, Content, Footer, Sider } = Layout;
+  const { Header, Content, Sider } = Layout;
+  const history = useHistory();
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -29,7 +28,8 @@ function LayerLayout(props) {
   }
 
   const handleLogout = () => {
-
+    Cookies.remove('token');
+    history.push('/login');
   }
 
   const location = useLocation();
@@ -38,8 +38,6 @@ function LayerLayout(props) {
   const SendIcon = props => <Icon component={Send} {...props} />;
   const ReceiveIcon = props => <Icon component={Receive} {...props} />;
   const SettingIcon = props => <Icon component={Setting} {...props} />;
-
-  const [state, dispatch] = useStateValue();
 
   // const username = state.user.first_name + state.user.mid_name + state.user.last_name;
 
@@ -84,12 +82,12 @@ function LayerLayout(props) {
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             <Burger onClick={toggle} className='layout__burger'/>
-              { !state.loading && (
+              {/* { !state.loading && ( */}
                 <>
-                  <span className='layout__profile'>{state.user.first_name + state.user.mid_name + state.user.last_name}</span>
+                  {/* <span className='layout__profile'>{state.user.first_name + state.user.mid_name + state.user.last_name}</span> */}
                   {/* <Button type='text' onClick={handleLogout}><Exit /></Button> */}
                 </>
-              )}
+              {/* )} */}
           </Header>
           <Content
             className="site-layout-background"
