@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Input, message, Select, Spin } from 'antd';
+import { Button, Input, message, Select, Spin, Modal } from 'antd';
 import '../styles/Send.css';
 import { ReactComponent as To } from '../assets/arrowright.svg';
 import sel from '../assets/Selendra.png';
 import AxiosInstance from '../helpers/AxiosInstance';
 import PinField from "react-pin-field";
 import { LoadingOutlined } from '@ant-design/icons';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Warning } from '../assets/warning.svg';
 
 function Send() {
+  const modalStyle = {
+    color: '#fff',
+    background: '#181C35',
+    borderRadius: '8px',
+    textAlign: 'center'
+  }
+
   const { TextArea } = Input;
   const { Option, OptGroup } = Select;
   let today = new Date().toISOString().slice(0, 10);
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
-
-  const [portfolio, setPortfolio] = useState({
-    portfolio: null,
-    loading: true
-  });
 
   const [pin, setPin] = useState('');
   const [asset_code, SetAssetcode] = useState('');
@@ -26,6 +31,7 @@ function Send() {
   const [loading, setLoading] = useState(false);
 
   const [pinField, setPinField] = useState(false);
+  const [visible, setVisi] = useState(false);
 
   const handleConfirm = () => {
     setPinField(true);
@@ -58,20 +64,43 @@ function Send() {
     })
   }
 
+  const [portfolio, setPortfolio] = useState({
+    portfolio: null,
+    loading: true
+  });
+
+  const [userprofile, setUserprofile] = useState({
+    userprofile: null,
+    loading: true
+  })
+
   useEffect(() => {
-    AxiosInstance().get('/portforlio') 
-    .then(res => {
-      setPortfolio({
-        portfolio: res.data,
-        loading: false
-      })
-    })
+    const reqOne = AxiosInstance().get('/userprofile');
+    const reqTwo = AxiosInstance().get('/portforlio');
+
+    axios.all([reqOne, reqTwo])
+    .then(axios.spread((...res) => {
+      const userprofile = res[0].data;
+      const portfolio = res[1].data;
+      if(portfolio.error) {
+        setVisi(true)
+      } else {
+        setPortfolio({
+          portfolio,
+          loading: false
+        })
+        setUserprofile({
+          userprofile,
+          loading: false
+        })
+      }
+    }))
   }, [])
 
   return (
     <div className='send'>
-      {portfolio.loading && (<Spin indicator={antIcon} />)}
-      {!portfolio.loading && (
+      {portfolio.loading && userprofile.loading && (<Spin indicator={antIcon} />)}
+      {!portfolio.loading && !userprofile.loading && (
       <div className='send__container'>
         <div className='send__field'>
           <p>Send Transaction</p>
@@ -80,7 +109,7 @@ function Send() {
             <Input 
               placeholder='From'
               readOnly
-              // value={state.user.wallet}
+              value={userprofile.userprofile.wallet}
             ></Input>
             <To className='send__icon'/>
             <Input 
@@ -120,7 +149,7 @@ function Send() {
               <p>Transaction Details</p>
               <div className='send__invoiceWallet'>
                 <div className='send__from'>
-                  <p></p>
+                  <p>{sliceStr(userprofile.userprofile.wallet)}</p>
                   <p><img src={sel} alt='sel'/>SEL</p>
                 </div>
                 <div className='send__to'>
@@ -136,9 +165,9 @@ function Send() {
                   <p>Memo:</p>
                 </div>
                 <div className='send__invoiceRight'>
-                  <p>{amount}</p>
+                  <p>{amount !== '' ?  amount : '...'}</p>
                   <p>{today}</p>
-                  <p>{memo}</p>
+                  <p>{memo !=='' ? memo : '...'}</p>
                 </div>
               </div>
               <div className='send__btn'>
@@ -167,6 +196,29 @@ function Send() {
         </div>
       </div>
       )}
+      <Modal
+        title=""
+        visible={visible}
+        footer={null}
+        closable={false}
+        centered
+        bodyStyle={modalStyle}
+        width={880}
+      >
+        <p className='wallet__modalTitle'>
+          <Warning className='wallet__modalIcon'/> Warning
+        </p>
+        <div className='wallet__modalContainer'>
+          <div className='wallet__modalDescription'>
+            <p>Look like you don't have wallet yet!!</p>
+          </div>
+        </div>
+        <div className='wallet__modalButton'>
+          <Link to='/getwallet'>
+            <Button>Get Wallet</Button>
+          </Link>
+        </div>
+      </Modal>
     </div>
   )
 }

@@ -69,7 +69,7 @@ function Wallet() {
       return (`${first}...${last}`);
     }
   }
-// End Function
+ // End Function
   const [datacollection, setdatacollection] = useState({});
   const [visible, setVisi] = useState(false);
   const [payload, setPayload] = useState({

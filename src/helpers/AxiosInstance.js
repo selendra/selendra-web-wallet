@@ -22,21 +22,21 @@ export default () => {
         resolve(response);
       }),
       (error) => {
-        // if (!error.response) {
-        //   return new Promise((resolve, reject) => {
-        //     reject(error);
-        //   });
-        // }
+        if (!error.response) {
+          return new Promise((resolve, reject) => {
+            reject(error);
+          });
+        }
 
-        // if (error.response.status >= 400) {
-        //   localStorage.removeItem("token");
-        //   window.location = "/login";
-        // } 
-        // else {
-        //   return new Promise((resolve, reject) => {
-        //     reject(error);
-        //   });
-        // }
+        if (error.response.status >= 400) {
+          Cookie.remove("token");
+          window.location = "/login";
+        } 
+        else {
+          return new Promise((resolve, reject) => {
+            reject(error);
+          });
+        }
       }
   );
   return axiosInstance;

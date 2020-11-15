@@ -116,7 +116,7 @@ function Getwallet() {
             </div>
           </div>
           <div className='getwallet__modalButton'>
-            <Link to='/verifyphone'>
+            <Link to='/verifyaddphone'>
               <Button>Verify Phone</Button>
             </Link>
           </div>

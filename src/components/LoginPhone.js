@@ -40,7 +40,7 @@ function LoginPhone() {
     <div className='loginPhone__field'>
       <div className='loginPhone__input'>
         <Input 
-          placeHolder='Phone'
+          placeholder='Phone'
           onChange={ e => setPhone(e.target.value) }
           value={phone}
         ></Input>
@@ -48,7 +48,7 @@ function LoginPhone() {
       </div>
       <div className='loginPhone__input'>
         <Input 
-          placeHolder='Password'
+          placeholder='Password'
           type='password'
           onChange={ e => setPassword(e.target.value) }
           value={password}

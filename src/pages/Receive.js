@@ -1,15 +1,24 @@
-import { Table} from 'antd';
+import { Table, Modal } from 'antd';
 import React, {useEffect, useState} from 'react';
 import '../styles/Receive.css';
 import { ReactComponent as Copy } from '../assets/copy.svg';
 import QRCode from 'qrcode.react';
-import { Spin } from 'antd';
+import { Spin, Button } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import AxiosInstance from '../helpers/AxiosInstance';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Warning } from '../assets/warning.svg';
+
 
 function Receive() {
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+  const modalStyle = {
+    color: '#fff',
+    background: '#181C35',
+    borderRadius: '8px',
+    textAlign: 'center'
+  }
 
   const columns = [
     {
@@ -78,6 +87,7 @@ function Receive() {
     return (`${h}:${m}, ${mo} ${da} ${ye}`);
   }
 
+  const [visible, setVisi] = useState(false);
   const [payload, setPayload] = useState({
     trx: null,
     user: null,
@@ -92,12 +102,16 @@ function Receive() {
 
     axios.all([reqOne, reqTwo, reqThree])
     .then(axios.spread((...res) => {
-      setPayload({
-        trx: res[0].data,
-        user: res[1].data,
-        portfolio: res[2].data,
-        loading: false
-      })
+      if(res[2].data.error) {
+        setVisi(true);
+      } else {
+        setPayload({
+          trx: res[0].data,
+          user: res[1].data,
+          portfolio: res[2].data,
+          loading: false
+        })
+      }
     }))
   }, [])
 
@@ -151,6 +165,29 @@ function Receive() {
         </div>
       </div>
       )}
+      <Modal
+        title=""
+        visible={visible}
+        footer={null}
+        closable={false}
+        centered
+        bodyStyle={modalStyle}
+        width={880}
+      >
+        <p className='wallet__modalTitle'>
+          <Warning className='wallet__modalIcon'/> Warning
+        </p>
+        <div className='wallet__modalContainer'>
+          <div className='wallet__modalDescription'>
+            <p>Look like you don't have wallet yet!!</p>
+          </div>
+        </div>
+        <div className='wallet__modalButton'>
+          <Link to='/getwallet'>
+            <Button>Get Wallet</Button>
+          </Link>
+        </div>
+      </Modal>
     </div>
   )
 }

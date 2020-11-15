@@ -23,6 +23,13 @@ function Setting() {
   const [changePasswordField, setChangePassField] = useState(false);
   const [changePinField, setChangePinField] = useState(false);
 
+  const sliceStr = (str) => {
+    if(str !== undefined) {
+      const first = str.slice(0, 1);
+      return (`${first}`);
+    }
+  }
+
   useEffect(() => {
     AxiosInstance().get('/userprofile')
     .then((res) => {
@@ -84,7 +91,9 @@ function Setting() {
           <div className='setting__profile'>
             <div className='setting__profilePic'>
               <div className='setting__circle'>
-                {/* <span>{sliceStr(user.first_name + user.last_name)}</span> */}
+                { user.first_name && user.last_name && (
+                  <span>{sliceStr(user.first_name) + sliceStr(user.last_name)}</span>
+                )}
               </div>
             </div>
             { user.first_name || user.last_name ? (
@@ -108,7 +117,9 @@ function Setting() {
             { user.gender && (
               <p>Gender: <span>{user.gender}</span></p>
             )}
-            <p>Wallet: <span>{user.wallet}</span></p>
+            { user.wallet && (
+              <p>Wallet: <span>{user.wallet}</span></p>
+            )}
           </div>
           )}
           { changePasswordField && (

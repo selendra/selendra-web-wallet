@@ -1,0 +1,47 @@
+.verifyaddphone {
+  width: 100%;
+  height: 100%;
+}
+
+.verifyaddphone__container {
+  height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 70px;
+
+}
+
+.verifyaddphone__sectionOne {
+  align-items: center;
+  justify-content: center;
+}
+
+.verifyaddphone__sectionOne span {
+  font-size: 42px;
+  font-weight: bold;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.verifyaddphone__sectionOne p {
+  font-size: 24px;
+}
+
+.verifyaddphone__sectionTwo {
+  flex: 0.9;
+}
+
+.verifyaddphone__sectionTwo > Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  height: 69px;
+  width: 100%;
+  font-weight: 600;
+}

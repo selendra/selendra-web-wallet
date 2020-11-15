@@ -20,6 +20,7 @@ function LoginEmail() {
       password
     })
     .then((res) => {
+      setLoading(false);
       if(res.data.token) {
         message.success('Login Successfully');
         Cookie.set('token', res.data.token);
@@ -29,7 +30,6 @@ function LoginEmail() {
       } else {
         message.error(res.data.error.message);
       }
-      setLoading(false);
     })
     .catch((err) => {
       message.error('Something went wrong at our end');
@@ -40,7 +40,7 @@ function LoginEmail() {
     <div className='loginEmail__field'>
       <div className='loginEmail__input'>
         <Input 
-          placeHolder='Email' 
+          placeholder='Email' 
           onChange={ e => setEmail(e.target.value) }
           value={email}
         ></Input>
@@ -48,7 +48,7 @@ function LoginEmail() {
       </div>
       <div className='loginEmail__input'>
         <Input 
-          placeHolder='Password'
+          placeholder='Password'
           type='password'
           onChange={ e => setPassword(e.target.value) } 
           value={password}

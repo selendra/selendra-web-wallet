@@ -1,0 +1,86 @@
+.addphone {
+  width: 100%;
+  height: 100%;
+}
+
+.addphone__container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 940px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 70px 20px;
+}
+
+.addphone__sectionOne {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.addphone__sectionOne span {
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.addphone__sectionTwo {
+  display: flex;
+  flex: 0.8;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.addphone__input > Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+  height: 69px;
+  width: 100%;
+  padding-left: 46px;
+  font-weight: 600;
+}
+
+.addphone__input {
+  position: relative; 
+}
+
+.addphone__icon {
+  position: absolute;
+  top: 28px;
+  left: 8px;
+  width: 30px;
+  height: 32px;
+}
+
+.addphone__btnAddPhone,
+.addphone__btnSendCode,
+.addphone__btnVerify {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.addphone__btnAddPhone > Button,
+.addphone__btnSendCode > Button,
+.addphone__btnVerify > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 85%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+
+.addphone__btnAddPhone > Button:hover,
+.addphone__btnSendCode > Button:hover,
+.addphone__btnVerify > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}

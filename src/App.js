@@ -16,6 +16,8 @@ import Setting from './pages/Setting';
 import Getwallet from './pages/Getwallet';
 import Verifphone from './pages/Verifphone';
 import Userverify from './pages/Userverify';
+import Addphone from './pages/Addphone';
+import VerifyAddphone from './pages/VerifyAddphone';
 
 function App() {
   return (
@@ -59,6 +61,12 @@ function App() {
             <LayerLayout>
               <Userverify />
             </LayerLayout>
+          </Route>
+          <Route path='/addphone' component={Addphone}>
+            <Addphone />
+          </Route>
+          <Route path='/verifyaddphone' component={VerifyAddphone}>
+            <VerifyAddphone />
           </Route>
         </Switch>
       </div>
