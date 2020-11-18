@@ -1,11 +1,13 @@
+// Modules
 import React, { useState } from 'react';
+import AxiosInstance from '../helpers/AxiosInstance';
+// Components
 import { Input, Button, message } from 'antd';
-
+import AuthLayout from '../components/AuthLayout';
 import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Chat } from '../assets/chat.svg';
-import AuthLayout from '../components/AuthLayout';
+// Styles
 import '../styles/VerifyAddphone.css';
-import AxiosInstance from '../helpers/AxiosInstance';
 
 function VerifyAddphone() {
   const [payload, setPayload] = useState({

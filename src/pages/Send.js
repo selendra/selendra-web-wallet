@@ -1,14 +1,17 @@
+// Modules
 import React, { useState, useEffect } from 'react';
-import { Button, Input, message, Select, Spin, Modal } from 'antd';
-import '../styles/Send.css';
-import { ReactComponent as To } from '../assets/arrowright.svg';
-import sel from '../assets/Selendra.png';
 import AxiosInstance from '../helpers/AxiosInstance';
-import PinField from "react-pin-field";
-import { LoadingOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+// Components
+import { Button, Input, message, Select, Spin, Modal } from 'antd';
 import { ReactComponent as Warning } from '../assets/warning.svg';
+import { ReactComponent as To } from '../assets/arrowright.svg';
+import { LoadingOutlined } from '@ant-design/icons';
+import PinField from "react-pin-field";
+import sel from '../assets/Selendra.png';
+// Styles
+import '../styles/Send.css';
 
 function Send() {
   const modalStyle = {
@@ -32,9 +35,12 @@ function Send() {
 
   const [pinField, setPinField] = useState(false);
   const [visible, setVisi] = useState(false);
+  const [Mfield, setMfield] = useState(true);
 
-  const handleConfirm = () => {
+  const handleConfirm = () => setPinField(true);
+  const handleConfirmPhone = () => {
     setPinField(true);
+    setMfield(false);
   }
 
   const sliceStr = (str) => {
@@ -100,11 +106,12 @@ function Send() {
   return (
     <div className='send'>
       {portfolio.loading && userprofile.loading && (<Spin indicator={antIcon} />)}
-      {!portfolio.loading && !userprofile.loading && (
+      {(!portfolio.loading && !userprofile.loading ) && (
       <div className='send__container'>
         <div className='send__field'>
           <p>Send Transaction</p>
           <p>Balance: <span>{portfolio.portfolio.data.balance}</span></p>
+          {Mfield && (<>
           <div className='send__wallet'>
             <Input 
               placeholder='From'
@@ -142,6 +149,10 @@ function Send() {
             onChange={e => SetMemo(e.target.value)}
             className='textarea'
           ></TextArea>
+          <div className='send__MbtnNext'>
+            <Button block onClick={handleConfirmPhone}>Next</Button>
+          </div>
+          </>)}
         </div>
         <div className='send__invoice'>
           { !pinField ? (

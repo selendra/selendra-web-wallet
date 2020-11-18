@@ -1,13 +1,16 @@
+// Module
 import React, { useState } from 'react';
-import '../styles/Getwallet.css';
-import PinField from "react-pin-field";
-import '../styles/pin-field.scss';
+import AxiosInstance from '../helpers/AxiosInstance';
+import { useHistory, Link } from 'react-router-dom';
+// Components
 import { Button, message, Modal } from 'antd';
+import PinField from "react-pin-field";
 import { ReactComponent as Thick } from '../assets/thick.svg';
 import { ReactComponent as X } from '../assets/x.svg';
 import { ReactComponent as Information } from '../assets/information.svg';
-import AxiosInstance from '../helpers/AxiosInstance';
-import { useHistory, Link } from 'react-router-dom';
+// Styles
+import '../styles/Getwallet.css';
+import '../styles/pin-field.scss';
 
 function Getwallet() {
   const [visible, setVisi] = useState(false);
@@ -20,9 +23,9 @@ function Getwallet() {
 
   const handleGetwallet = () => {
     if(pin === '' || pin === '') {
-      message.error('PIN is required!')
+      message.error('PIN is required!');
     } else if(pin !== pinCon) {
-      message.error('PIN not match!')
+      message.error('PIN not match!');
     } else {
       setLoading(true);
       AxiosInstance().post('/getwallet', {

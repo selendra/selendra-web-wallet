@@ -1,19 +1,23 @@
+// Modules
 import React, { useState, useEffect } from 'react';
-import { Button, Modal, Table, Spin } from 'antd';
-import '../styles/Wallet.css';
+import AxiosInstance from '../helpers/AxiosInstance';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+// Components
+import { Button, Modal, Spin } from 'antd';
 import { ReactComponent as Warning } from '../assets/warning.svg';
 import { ReactComponent as Add } from '../assets/plus.svg';
-import sel from '../assets/Selendra.png';
-import AxiosInstance from '../helpers/AxiosInstance';
-import { Doughnut } from 'react-chartjs-2';
-import { Link } from 'react-router-dom';
 import { LoadingOutlined } from '@ant-design/icons';
-import axios from 'axios';
+import { Doughnut } from 'react-chartjs-2';
+import sel from '../assets/Selendra.png';
+import TableTransaction from '../components/TableTransaction';
+// Styles
+import '../styles/Wallet.css';
+import MTableTransaction from '../components/mobile/MTableTransaction';
 
 
 function Wallet() {
   const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
-
   const modalStyle = {
     color: '#fff',
     background: '#181C35',
@@ -21,55 +25,6 @@ function Wallet() {
     textAlign: 'center'
   }
 
-  const columns = [
-    {
-      title: 'Asset',
-      dataIndex: 'name',
-      render: text => <span>SEL</span>,
-    },
-    {
-      title: 'Amount',
-      dataIndex: 'amount',
-      render: text => <span>{text}</span>,
-    },
-    {
-      title: 'Date',
-      dataIndex: 'created_at',
-      render: text => <span>{Timecon(text)}</span>,
-    },
-    {
-      title: 'From',
-      dataIndex: 'sender',
-      render: text => <span>{sliceStr(text)}</span>,
-    },
-    {
-      title: 'To',
-      dataIndex: 'destination',
-      render: text => <span>{sliceStr(text)}</span>,
-    },
-    {
-      title: 'Status',
-      dataIndex: 'tags',
-      render: text => <span>complete</span>,
-    },
-  ];
-// Function
-  const Timecon = (time) => {
-    const d = new Date(time);
-    const dtf = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }); 
-    const [{ value: mo },,{ value: da },,{ value: ye }] = dtf.formatToParts(d);
-    const h = d.getHours();
-    const m = d.getMinutes();
-    return (`${h}:${m}, ${mo} ${da} ${ye}`);
-  }
-  const sliceStr = (str) => {
-    if(str !== undefined) {
-      const first = str.slice(0, 10);
-      const last = str.slice(-2);
-      return (`${first}...${last}`);
-    }
-  }
- // End Function
   const [datacollection, setdatacollection] = useState({});
   const [visible, setVisi] = useState(false);
   const [payload, setPayload] = useState({
@@ -86,17 +41,27 @@ function Wallet() {
     .then(axios.spread((...res) => {
       const portfolio = res[1].data;
       if(portfolio.error) {
-        setVisi(true)
+        setVisi(true);
       } else {
-        let balance = '';
         setPayload({
           loading: false,
           trx: res[0].data,
           portfolio: res[1].data,
         }); 
-        balance = res[1].data.data.balance;
+        let balance = res[1].data.data.balance;
         setdatacollection({
           labels: ['SEL'],
+          options: {
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                    width: 100
+                }
+            }
+          },
           datasets: [
             {
               label: 'Portfolio',
@@ -135,7 +100,8 @@ function Wallet() {
             <span>Total Balance</span>
             <div className='wallet__chartContainer'>
               <div className='wallet__chartColOne'>
-                <Doughnut data={datacollection} />
+                {/* <Doughnut data={datacollection} className='wallet__doughnut'/> */}
+                <Doughnut data={datacollection} width='160' className='wallet__doughnutResponsive'/>
               </div>
               <div className='wallet__chartColTwo'>
                 <p>SEL: {payload.portfolio.data.balance}</p>
@@ -150,20 +116,15 @@ function Wallet() {
                 <span>SEL</span>
               </div>
             </div>
-          </div>
-          <div className='wallet__addAsset'>
-            <Add className='wallet__addIcon'/>
+            <div className='wallet__addAsset'>
+              <Add className='wallet__addIcon'/>
+            </div>
           </div>
         </div>
         <div className='wallet__rowTwo'>
           <span>Recent Transaction</span>
-          <Table 
-            className='ant-table-content'
-            columns={columns} 
-            dataSource={payload.trx}
-            pagination={false}
-            rowKey={record => record}
-          />
+          {/* <TableTransaction trx={payload.trx}/> */}
+          <MTableTransaction trx={payload.trx}/>
         </div>
       </div>
       )}

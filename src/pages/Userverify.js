@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
-import { Input, Select, Button, message } from 'antd';
+// Modules
+import React, { useState } from 'react';
 import AxiosInstance from '../helpers/AxiosInstance';
-import '../styles/Userverify.css';
 import { useHistory } from 'react-router-dom';
+// Components
+import { Input, Select, Button, message } from 'antd';
+// Styles
+import '../styles/Userverify.css';
 
 function Userverify() {
   const history = useHistory();

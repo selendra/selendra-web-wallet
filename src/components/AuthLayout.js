@@ -1,7 +1,7 @@
 import React from 'react';
 import selendra from '../assets/Selendra.png';
 import { ReactComponent as LoginAI } from '../assets/Login-ai.svg';
-import '../styles/AuthLayout.css';
+import '../styles/auth/AuthLayout.css';
 
 function AuthLayout(props) {
   return (

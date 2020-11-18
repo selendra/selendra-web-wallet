@@ -1,0 +1,46 @@
+.mlayout__footer {
+  height: 95px;
+  
+}
+
+.mlayout__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mlayout__footerContainer {
+  height: 100%;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #23284D;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mlayout__item > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+}
+
+.mlayout__icon {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+.mlayout__circle {
+  float: right;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #08B952;
+  margin: 10px;
+}

@@ -4,7 +4,7 @@ import { Button, Input, message } from 'antd';
 import { ReactComponent as Email } from '../assets/email.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
 import AxiosInstance from '../helpers/AxiosInstance';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Cookie from 'js-cookie';
 
 function LoginEmail() {
@@ -58,7 +58,9 @@ function LoginEmail() {
       </div>
       <div className='loginEmail__btn'>
         <Button loading={loading} onClick={handleLogin}>Login</Button>
-        <Button>Don't have account?<span>Sign Up</span></Button>
+        <Link to='/signup'>
+          <Button>Don't have account?<span>Sign Up</span></Button>
+        </Link>
       </div>
     </div>
   )

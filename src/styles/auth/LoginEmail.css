@@ -71,14 +71,14 @@
   color: #b3b3b3;
 }
 
-.loginEmail__btn > Button:nth-child(2) {
+.loginEmail__btn > a:nth-child(2) > Button {
   background-color: transparent;
   color: #585D86;
   border: none;
   font-size: 16px; 
   font-weight: bold;
 }
-.loginEmail__btn > Button > span:nth-child(2) {
+.loginEmail__btn > a > Button > span:nth-child(2) {
   color: #40FF90;
   margin-top: 20px;
   margin-left: 8px;

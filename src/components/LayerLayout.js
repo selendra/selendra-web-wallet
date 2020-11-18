@@ -1,4 +1,4 @@
-import { Layout, Menu, Button } from 'antd';
+import { Layout, Menu } from 'antd';
 import React, {
   useState
 } from 'react';
@@ -38,13 +38,14 @@ function LayerLayout(props) {
   const SendIcon = props => <Icon component={Send} {...props} />;
   const ReceiveIcon = props => <Icon component={Receive} {...props} />;
   const SettingIcon = props => <Icon component={Setting} {...props} />;
+  const ExitIcon = props => <Icon component={Exit} {...props} />
 
   // const username = state.user.first_name + state.user.mid_name + state.user.last_name;
 
   return (
     <div className='layout'>
       <Layout className='ant-layout'>
-        <Sider width='290px' collapsed={collapsed} className='ant-layout-sider'>
+        <Sider width='290px' collapsed={collapsed} className='ant-layout-sider layout__sider'>
           <div className='layout__header'>
             <img src={logo} alt='logo' className='layout__logo'/>
             {!collapsed && (
@@ -77,10 +78,13 @@ function LayerLayout(props) {
                 <span>Setting</span>
               </Link>
             </Menu.Item>
+            <Menu.Item className='layout__menuItem' icon={<ExitIcon/>}>
+              <span onClick={handleLogout}>Log Out</span>
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
+          <Header className="site-layout-background layout__burgerHeader" style={{ padding: 0 }}>
             <Burger onClick={toggle} className='layout__burger'/>
               {/* { !state.loading && ( */}
                 <>

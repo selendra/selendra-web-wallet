@@ -1,14 +1,18 @@
-import { Table, Modal } from 'antd';
+// Modules
 import React, {useEffect, useState} from 'react';
-import '../styles/Receive.css';
-import { ReactComponent as Copy } from '../assets/copy.svg';
 import QRCode from 'qrcode.react';
-import { Spin, Button } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
 import AxiosInstance from '../helpers/AxiosInstance';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+// Components
+import { Modal, Spin, Button   } from 'antd';
+import { ReactComponent as Copy } from '../assets/copy.svg';
+import { LoadingOutlined } from '@ant-design/icons';
 import { ReactComponent as Warning } from '../assets/warning.svg';
+import TableTransaction from '../components/TableTransaction';
+import MTableTransaction from '../components/mobile/MTableTransaction';
+// Styles
+import '../styles/Receive.css';
 
 
 function Receive() {
@@ -19,44 +23,6 @@ function Receive() {
     borderRadius: '8px',
     textAlign: 'center'
   }
-
-  const columns = [
-    {
-      title: 'Asset',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => <span>SEL</span>,
-    },
-    {
-      title: 'Amount',
-      key: 'tags',
-      dataIndex: 'amount',
-      render: text => <span>{text}</span>,
-    },
-    {
-      title: 'Date',
-      key: 'tags',
-      dataIndex: 'created_at',
-      render: text => <span>{Timecon(text)}</span>,
-    },
-    {
-      title: 'From',
-      dataIndex: 'sender',
-      render: text => <span>{sliceStr(text)}</span>,
-    },
-    {
-      title: 'To',
-      key: 'tags',
-      dataIndex: 'destination',
-      render: text => <span>{sliceStr(text)}</span>,
-    },
-    {
-      title: 'Status',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: text => <span>complete</span>,
-    },
-  ];
 
   const onCopy = () => {
     /* Get the text field */
@@ -76,15 +42,6 @@ function Receive() {
       const last = str.slice(-2);
       return (`${first}...${last}`);
     }
-  }
-
-  const Timecon = (time) => {
-    const d = new Date(time);
-    const dtf = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }); 
-    const [{ value: mo },,{ value: da },,{ value: ye }] = dtf.formatToParts(d);
-    const h = d.getHours();
-    const m = d.getMinutes();
-    return (`${h}:${m}, ${mo} ${da} ${ye}`);
   }
 
   const [visible, setVisi] = useState(false);
@@ -155,13 +112,8 @@ function Receive() {
         </div>
         <div className='receive__lower'>
           <p>Transaction</p>
-          <Table 
-            className='ant-table-content'
-            columns={columns} 
-            dataSource={payload.trx}
-            pagination={false}
-            rowKey={record => record}
-          />
+          {/* <TableTransaction trx={payload.trx}/> */}
+          <MTableTransaction trx={payload.trx}/>
         </div>
       </div>
       )}
@@ -192,4 +144,4 @@ function Receive() {
   )
 }
 
-export default Receive
+export default Receive;

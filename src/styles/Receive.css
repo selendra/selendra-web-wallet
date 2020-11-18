@@ -113,3 +113,22 @@
   color: #BDBEE0;
   font-weight: 600;
 }
+
+/* RESPONSIVE */
+/* SmartPhone */
+@media only screen and (max-width: 500px) {
+  .receive__container {
+    padding: 10px;
+  } 
+  .receive__balance {
+    display: none;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+    
+}
+/* Normal */
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+    
+}

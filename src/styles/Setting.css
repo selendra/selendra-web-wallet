@@ -74,6 +74,7 @@
 .setting__profileInfo > p:nth-child(4) {
   margin-left: 3rem;
   font-size: 32px;
+  word-wrap: break-word;
 }
 
 .setting__right span {
@@ -185,4 +186,20 @@
   height: 58px;
   border: none;
   border-radius: 8px;
+}
+
+/* RESPONSIVE */
+/* SmartPhone */
+@media only screen and (max-width: 500px) {
+  .setting__container {
+    padding: 10px;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+    
+}
+/* Normal */
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+    
 }

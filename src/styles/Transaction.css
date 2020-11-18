@@ -14,3 +14,19 @@
   font-size: 24px;
   color: #BDBEE0;
 }
+
+/* RESPONSIVE */
+/* SmartPhone */
+@media only screen and (max-width: 500px) {
+  .transaction {
+    padding: 10px;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+    
+}
+/* Normal */
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+    
+}

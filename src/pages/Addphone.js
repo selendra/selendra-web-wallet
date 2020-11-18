@@ -1,9 +1,12 @@
+// Module
 import React, { useState } from 'react';
-import { Input, Button, message } from 'antd';
 import AxiosInstance from '../helpers/AxiosInstance';
-import '../styles/Addphone.css';
-import AuthLayout from '../components/AuthLayout';
+// Components
+import { Input, Button, message } from 'antd';
 import { ReactComponent as Phone } from '../assets/phone.svg';
+import AuthLayout from '../components/AuthLayout';
+// Styles
+import '../styles/Addphone.css';
 
 function Addphone() {
   const [phone, setPhone] = useState('');

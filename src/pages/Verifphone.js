@@ -1,14 +1,17 @@
+// Modules
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import '../styles/auth/Login.css';
-import selendra from '../assets/Selendra.png';
+import AxiosInstance from '../helpers/AxiosInstance';
+import Cookie from 'js-cookie';
+// Components
+import { Button, Input, message } from 'antd';
 import { ReactComponent as LoginAI } from '../assets/Login-ai.svg';
 import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Chat } from '../assets/chat.svg';
-import { Button, Input, message } from 'antd';
+import selendra from '../assets/Selendra.png';
+// Styles
+import '../styles/auth/Login.css';
 import '../styles/VerifyPhone.css';
-import AxiosInstance from '../helpers/AxiosInstance';
-import Cookie from 'js-cookie';
 
 function Verifphone() {
   const [phone, setPhone] = useState('');

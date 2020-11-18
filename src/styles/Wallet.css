@@ -71,8 +71,10 @@
 }
 
 .wallet__chartColOne {
-  margin-top: 10px;
   flex: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wallet__chartColTwo {
@@ -137,6 +139,10 @@
   font-size: 24px;
 }
 
+.wallet__asset {
+  display: flex;
+}
+
 .wallet__addAsset {
   width: 180px;
   height: 304px;
@@ -171,4 +177,65 @@
 .wallet__addIcon {
   width: 46px;
   height: 46px;
+}
+
+
+
+
+/* RESPONSIVE */
+/* SmartPhone */
+@media only screen and (max-width: 500px) {
+  .wallet__rowOne {
+    flex-direction: column;
+  }
+  .wallet__container {
+    padding: 10px;
+  }
+  .wallet__chart {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .wallet__onceAsset {
+    height: 94px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .wallet__onceAsset > img{
+    width: 34px;
+    height: 34px;
+  }
+  .wallet__onceAsset span {
+    font-size: 12px!important;
+  }
+  .wallet__chartColTwo > p {
+    font-size: 16px;
+  }
+  .wallet__addAsset {
+    height: 94px;
+    margin-left: 10px;
+  }
+  .wallet__rowTwo {
+    margin-top: 10px;
+  }
+}
+/* Tablet */
+@media only screen and (min-width: 501px) and (max-width: 768px) {
+    
+}
+/* Normal */
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+    
+}
+/* Large monitor */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+       
+}
+/* Landscape */
+@media only screen and (max-height: 500px) {
+    
+}
+/* Widescreen */
+@media only screen and (min-width: 1920px) {
+    
 }

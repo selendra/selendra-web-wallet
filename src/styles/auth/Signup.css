@@ -6,33 +6,10 @@
   color: #fff;
 }
 
-/* sectionOne */
-.signup__sectionOne {
-  background: rgba(255, 255, 255, 6%);
-  max-width: 500px!important;
-  min-height: 100vh;
-  padding: 70px;
-}
-
-.signup__title {
-  font-size: 52px;
-  font-weight: bold;
-}
-
-.signup__description {
-  font-size: 24px;
-}
-
-.signup__ai {
-  max-width: 400px;
-  max-height: 400px;
-}
-/* end sectionOne */
-
 /* sectionTwo */
 .signup__sectionTwo {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .signup__container {

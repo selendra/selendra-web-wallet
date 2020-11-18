@@ -18,6 +18,7 @@ import Verifphone from './pages/Verifphone';
 import Userverify from './pages/Userverify';
 import Addphone from './pages/Addphone';
 import VerifyAddphone from './pages/VerifyAddphone';
+import MLayout from './components/mobile/MLayout';
 
 function App() {
   return (
@@ -25,31 +26,38 @@ function App() {
       <div className="App">
         <Switch>
           <Route path='/' exact component={Wallet}>
-            <LayerLayout>
+            <MLayout>
+            {/* <LayerLayout> */}
               <Wallet />
-            </LayerLayout>
+            {/* </LayerLayout> */}
+            </MLayout>
           </Route>
-          <Route path='/login' component={Login}></Route>
-          <Route path='/signup' component={SignUp}></Route>
-          <Route path='/verifyphone' component={Verifphone}></Route>
           <Route path='/transaction' component={Transaction}>
             <LayerLayout>
+              <MLayout>
               <Transaction />
+              </MLayout>
             </LayerLayout>
           </Route>
           <Route path='/send' component={Send}>
             <LayerLayout>
-              <Send />
+              <MLayout>
+                <Send />
+              </MLayout>
             </LayerLayout>
           </Route>
           <Route path='/receive' component={Receive}>
             <LayerLayout>
-              <Receive />
+              <MLayout>
+                <Receive />
+              </MLayout>
             </LayerLayout>
           </Route>
           <Route path='/setting' component={Setting}>
             <LayerLayout>
-              <Setting />
+              <MLayout>
+                <Setting />
+              </MLayout>
             </LayerLayout>
           </Route>
           <Route path='/getwallet' component={Getwallet}>
@@ -62,12 +70,11 @@ function App() {
               <Userverify />
             </LayerLayout>
           </Route>
-          <Route path='/addphone' component={Addphone}>
-            <Addphone />
-          </Route>
-          <Route path='/verifyaddphone' component={VerifyAddphone}>
-            <VerifyAddphone />
-          </Route>
+          <Route path='/login' component={Login}/>
+          <Route path='/signup' component={SignUp}/>
+          <Route path='/verifyphone' component={Verifphone}/>
+          <Route path='/addphone' component={Addphone}/>
+          <Route path='/verifyaddphone' component={VerifyAddphone}/>
         </Switch>
       </div>
     </Router>
