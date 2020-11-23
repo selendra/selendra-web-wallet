@@ -53,13 +53,13 @@ function Wallet() {
           labels: ['SEL'],
           options: {
             layout: {
-                padding: {
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    bottom: 0,
-                    width: 100
-                }
+              padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                width: 100
+              }
             }
           },
           datasets: [
@@ -100,8 +100,12 @@ function Wallet() {
             <span>Total Balance</span>
             <div className='wallet__chartContainer'>
               <div className='wallet__chartColOne'>
-                {/* <Doughnut data={datacollection} className='wallet__doughnut'/> */}
-                <Doughnut data={datacollection} width='160' className='wallet__doughnutResponsive'/>
+                <div className='desktop'>
+                  <Doughnut data={datacollection} width='180'/>
+                </div>
+                <div className='mobile'>
+                  <Doughnut data={datacollection} width='160'/>
+                </div>
               </div>
               <div className='wallet__chartColTwo'>
                 <p>SEL: {payload.portfolio.data.balance}</p>
@@ -123,8 +127,12 @@ function Wallet() {
         </div>
         <div className='wallet__rowTwo'>
           <span>Recent Transaction</span>
-          {/* <TableTransaction trx={payload.trx}/> */}
-          <MTableTransaction trx={payload.trx}/>
+          <div className='desktop'>
+            <TableTransaction trx={payload.trx}/>
+          </div>
+          <div className='mobile'>
+            <MTableTransaction trx={payload.trx}/>
+          </div>
         </div>
       </div>
       )}

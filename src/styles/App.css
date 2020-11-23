@@ -12,3 +12,32 @@
 .ant-spin {
   width: 100%;
 }
+
+
+
+
+@media only screen and (min-width: 769px) {
+  .mobile { display: none; }
+}
+/* Tablet */
+@media only screen and (max-width: 768px) {
+  .desktop { display: none; }       
+}
+
+
+/* Normal */
+@media only screen and (min-width: 769px) and (max-width: 1199px){
+   
+}
+/* Large monitor */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  
+}
+/* Landscape */
+@media only screen and (max-height: 500px) {
+    
+}
+/* Widescreen */
+@media only screen and (min-width: 1920px) {
+    
+}

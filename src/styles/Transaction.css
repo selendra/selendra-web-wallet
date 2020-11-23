@@ -17,7 +17,7 @@
 
 /* RESPONSIVE */
 /* SmartPhone */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .transaction {
     padding: 10px;
   }

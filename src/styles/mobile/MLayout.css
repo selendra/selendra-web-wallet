@@ -36,11 +36,21 @@
   display: block;
 }
 
+.mlayout__headerContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .mlayout__circle {
-  float: right;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background: #08B952;
   margin: 10px;
+}
+
+@media only screen and (min-width: 769px) {
+  .mlayout__footer,
+  .mlayout__header { display: none;}
 }

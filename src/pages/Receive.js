@@ -112,8 +112,12 @@ function Receive() {
         </div>
         <div className='receive__lower'>
           <p>Transaction</p>
-          {/* <TableTransaction trx={payload.trx}/> */}
-          <MTableTransaction trx={payload.trx}/>
+          <div className='desktop'>
+            <TableTransaction trx={payload.trx}/>
+          </div>
+          <div className='mobile'>
+            <MTableTransaction trx={payload.trx}/>
+          </div>
         </div>
       </div>
       )}

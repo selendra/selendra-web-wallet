@@ -4,7 +4,9 @@
 }
 
 .msetting__container,
-.msetting__settingContainer {
+.msetting__settingContainer,
+.msetting__changePassContainer,
+.msetting__changePinContainer {
   margin: 10px;
   padding: 10px;
   background-color: #181C35;
@@ -45,7 +47,9 @@
   background-color: #0D1126!important;
 }
 
-.msetting__field Input {
+.msetting__field Input,
+.msetting__itemOne Input,
+.msetting__itemTwo Input {
   color: #fff;
   background-color: #0D1126;
   border: none;
@@ -67,7 +71,9 @@
 }
 
 .msetting__btn Button,
-.msetting__btnSave > Button {
+.msetting__btnSave > Button,
+.msetting__itemTwo Button,
+.msetting__changePinContainer Button {
   background: #08B952;
   color: #fff;
   font-size: 16px;
@@ -76,4 +82,9 @@
   height: 48px;
   border: none;
   border-radius: 8px;
+}
+
+.msetting__changePinContainer .field-a {
+  width: 50px;
+  height: 50px;
 }

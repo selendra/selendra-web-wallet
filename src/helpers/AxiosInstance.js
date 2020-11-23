@@ -27,7 +27,6 @@ export default () => {
             reject(error);
           });
         }
-
         if (error.response.status >= 400) {
           Cookie.remove("token");
           window.location = "/login";

@@ -27,9 +27,9 @@ function App() {
         <Switch>
           <Route path='/' exact component={Wallet}>
             <MLayout>
-            {/* <LayerLayout> */}
-              <Wallet />
-            {/* </LayerLayout> */}
+              <LayerLayout>
+                <Wallet />
+              </LayerLayout>
             </MLayout>
           </Route>
           <Route path='/transaction' component={Transaction}>

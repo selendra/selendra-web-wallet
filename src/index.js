@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
-import { StateProvider } from './StateProvider';
-import reducer, { initialState } from './reducer.js';
+import { StateProvider } from './contextapi/StateProvider';
+import reducer, { initialState } from './contextapi/reducer.js';
 
 
 ReactDOM.render(

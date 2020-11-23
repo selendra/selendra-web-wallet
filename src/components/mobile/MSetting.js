@@ -2,7 +2,9 @@ import { Select, Input, Button, message } from 'antd';
 import React, { useState } from 'react';
 import AxiosInstance from '../../helpers/AxiosInstance';
 import '../../styles/mobile/MSetting.css';
+import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom';
+import PinField from 'react-pin-field';
 
 function MSetting(props) {
   const history = useHistory();
@@ -13,6 +15,22 @@ function MSetting(props) {
       return (`${first}`);
     }
   }
+  const handleLogout = () => {
+    Cookies.remove('token');
+    history.push('/login');
+  }
+
+  const handleIsChangePass = () => {
+    if(isChangePin) setIsChangePin(false);
+    setIsUserprofile(false);
+    return setIsChangePass(true);
+  }
+
+  const handleIsChangePin = () => {
+    if(isChangePass) setIsChangePass(false);
+    setIsUserprofile(false);
+    return setIsChangePin(true);
+  }
 
   const [readable, setReadable] = useState(true);
   const [first_name, setFirstname] = useState('');
@@ -20,6 +38,9 @@ function MSetting(props) {
   const [last_name, setLastname] = useState('');
   const [gender, setGender] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isChangePass, setIsChangePass] = useState(false);
+  const [isChangePin, setIsChangePin] = useState(false);
+  const [isUserprofile, setIsUserprofile] = useState(true);
 
   const handleSave = () => {
     setLoading(true);
@@ -32,12 +53,15 @@ function MSetting(props) {
     .then((res)=> {
       message.success(res.data.message);
       setLoading(false);
-      window.location.reload(true);
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 1500);
     })
   }
 
   return (
     <div className='msetting'>
+      { isUserprofile && (
       <div className='msetting__container'>
         <p>Profile</p>
         <div className='msetting__profile'>
@@ -56,12 +80,10 @@ function MSetting(props) {
               <p>First Name</p>
               { readable ? (
                 <Input
-                  placeholder='first name'
                   value={props.first_name}
                 ></Input>
               ) : (
                 <Input
-                  placeholder='first name'
                   value={first_name}
                   onChange={ e => setFirstname(e.target.value) }
                 ></Input>
@@ -72,12 +94,10 @@ function MSetting(props) {
               <p>Last Name</p>
               { readable ? (
                 <Input
-                  placeholder='last name'
                   value={props.last_name}
                 ></Input>
               ) : (
                 <Input
-                  placeholder='last name'
                   value={last_name}
                   onChange={ e => setLastname(e.target.value) }
                 ></Input>
@@ -114,16 +134,87 @@ function MSetting(props) {
           )}
         </div>
       </div>
+      )}
+      {isChangePass && (      
+      <div className='msetting__changePass'>
+        <div className='msetting__changePassContainer'>
+          <div className='msetting__itemOne'>
+            <p>Current Password</p>
+            <Input
+              value=''
+            ></Input>
+          </div>
+          <div className='msetting__itemTwo'>
+            <div>
+              <p>New Password</p>
+              <Input
+                value=''
+              ></Input>
+            </div>
+            <div>
+              <p>Confirm New Password</p>
+              <Input
+                value=''
+              ></Input>
+            </div>
+            <div style={{marginTop: '20px'}}>
+              <Button>Change Password</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      )}
+      {isChangePin && (
+      <div className='msetting__changePin'>
+        <div className='msetting__changePinContainer'>
+          <div>
+            <p>Current PIN</p>
+            <PinField 
+              className="field-a"
+              validate="0123456789"
+              length="4"
+              type="password"
+            />
+          </div>
+          <div>
+            <div>
+              <p>New PIN</p>
+              <PinField 
+                className="field-a"
+                validate="0123456789"
+                length="4"
+                type="password"
+              />
+            </div>
+            <div>
+              <p>Confirm New Password</p>
+              <PinField 
+                className="field-a"
+                validate="0123456789"
+                length="4"
+                type="password"
+              />
+            </div>
+            <div style={{marginTop: '20px'}}>
+              <Button>Change PIN</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      )}
       <div className='msetting__setting'>
         <div className='msetting__settingContainer'>
           <p>Setting</p>
           <div className='msetting__btn'>
             <div>
-              <Button>Change Password</Button>
+              <Button onClick={handleIsChangePass}>Change Password</Button>
             </div>
             <div>
-              <Button>Change PIN</Button>
+              <Button onClick={handleIsChangePin}>Change PIN</Button>
             </div>
+            {/* <div>
+              <Button type='text' onClick={handleLogout}>Log Out</Button>
+            </div> */}
           </div>
         </div>
       </div>

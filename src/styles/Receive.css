@@ -116,12 +116,15 @@
 
 /* RESPONSIVE */
 /* SmartPhone */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .receive__container {
     padding: 10px;
   } 
   .receive__balance {
     display: none;
+  }
+  .receive__qr {
+    width: 100%;
   }
 }
 /* Tablet */

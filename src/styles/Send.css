@@ -191,7 +191,7 @@
 
 /* RESPONSIVE */
 /* SmartPhone */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .send__container {
     display: initial;
   }

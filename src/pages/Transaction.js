@@ -33,9 +33,13 @@ function Transaction() {
       {!payload.loading && (
         <div className='transaction__container'>
           <span>Transaction</span>
-          <div style={{padding: '1rem'}}></div>  
-          {/* <TableTransaction trx={payload.trx}/> */}
-          <MTableTransaction trx={payload.trx} />
+          <div style={{padding: '1rem'}}></div>
+          <div className='desktop'>
+            <TableTransaction trx={payload.trx}/>
+          </div>
+          <div className='mobile'>
+            <MTableTransaction trx={payload.trx} />
+          </div>
         </div>
       )}
     </div>

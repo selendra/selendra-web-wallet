@@ -109,6 +109,12 @@
   margin-bottom: 20px;
 }
 
+.wallet__asset {
+  flex: 0.5;
+  display: flex;
+  justify-content: space-around;
+}
+
 .wallet__onceAsset {
   width: 180px;
   height: 304px;
@@ -158,7 +164,6 @@
 
 .wallet__rowOne {
   display: flex;
-  justify-content: space-between;
 }
 
 .wallet__chart {
@@ -167,6 +172,7 @@
   background: #181C35;
   border-radius: 8px;
   padding: 20px;
+  flex: .5;
 }
 
 .wallet__chart > span {
@@ -184,7 +190,7 @@
 
 /* RESPONSIVE */
 /* SmartPhone */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .wallet__rowOne {
     flex-direction: column;
   }
@@ -194,6 +200,9 @@
   .wallet__chart {
     width: 100%;
     margin: 10px 0;
+  }
+  .wallet__asset {
+    justify-content: flex-start;
   }
   .wallet__onceAsset {
     height: 94px;
