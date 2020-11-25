@@ -35,7 +35,7 @@ function MLayout(props) {
             <div className='mlayout__item'>
               <Link to='/transaction'>
                 <Transaction className='mlayout__icon'/>
-                <span>Transaction</span>
+                <span>Trx</span>
               </Link>
             </div>
           </div>

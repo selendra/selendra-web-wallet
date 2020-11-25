@@ -88,7 +88,7 @@
 }
 
 /* RESPONSIVE */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   .layout__sider,
   .layout__burgerHeader {
     display: none;

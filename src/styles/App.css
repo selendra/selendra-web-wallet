@@ -65,11 +65,11 @@
 
 
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1001px) {
   .mobile { display: none; }
 }
 /* Tablet */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   .desktop { display: none; }       
 }
 

@@ -68,6 +68,7 @@
 .msetting__btn {
   display: flex;
   justify-content: space-around;
+  padding-bottom: 14px;
 }
 
 .msetting__btn Button,

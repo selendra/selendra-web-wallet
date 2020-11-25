@@ -124,81 +124,81 @@ function Setting() {
           </div>  
           <div className='setting__right'>
             { userProfile && (
-            <div className='setting__profileInfo'>
-              <p>User Information</p>
-              { user.email && (
-                <p>Email: <span>{user.email}</span></p>
-              )}
-              { user.gender && (
-                <p>Gender: <span>{user.gender}</span></p>
-              )}
-              { user.wallet && (
-                <p>Wallet: <span>{user.wallet}</span></p>
-              )}
-            </div>
+              <div className='setting__profileInfo'>
+                <p>User Information</p>
+                { user.email && (
+                  <p>Email: <span>{user.email}</span></p>
+                )}
+                { user.gender && (
+                  <p>Gender: <span>{user.gender}</span></p>
+                )}
+                { user.wallet && (
+                  <p>Wallet: <span className='setting__walletAddress'>{user.wallet}</span></p>
+                )}
+              </div>
             )}
             { changePasswordField && (
-            <div className='setting__changePass'>
-              <p>Change Password</p>
-              <Input 
-                placeholder='Current Password'
-                onChange={ e => setCurrentPass(e.target.value) }
-                value={current_password}
-              ></Input>
-              <Input 
-                placeholder='New Password'
-                onChange={ e => setNewPass(e.target.value) }
-                value={new_password}
-              ></Input>
-              <Input 
-                placeholder='Confirm New Password'
-                onChange={ e => setNewPass1(e.target.value) }
-                value={new_password1}
-              ></Input>
-              <div className='setting__btnChangePass'>
-                <Button onClick={handleChangePass} loading={loading}>Change Password</Button>
+              <div className='setting__changePass'>
+                <p>Change Password</p>
+                <Input 
+                  placeholder='Current Password'
+                  onChange={ e => setCurrentPass(e.target.value) }
+                  value={current_password}
+                ></Input>
+                <Input 
+                  placeholder='New Password'
+                  onChange={ e => setNewPass(e.target.value) }
+                  value={new_password}
+                ></Input>
+                <Input 
+                  placeholder='Confirm New Password'
+                  onChange={ e => setNewPass1(e.target.value) }
+                  value={new_password1}
+                ></Input>
+                <div className='setting__btnChangePass'>
+                  <Button onClick={handleChangePass} loading={loading}>Change Password</Button>
+                </div>
               </div>
-            </div>
             )}
             { changePinField && (
-            <div className='setting__changePin'>
-              <p>Change PIN</p>
-              <div className='setting__changePinContainer'>
-                <div>
-                  <p>Current PIN</p>
-                  <PinField 
-                    className="field-a"
-                    validate="0123456789"
-                    length="4"
-                    type="password"
-                    onChange={setCurrentPin}
-                  />
-                </div>
-                <div>
-                  <p>New PIN</p>
-                  <PinField 
-                    className="field-a"
-                    validate="0123456789"
-                    length="4"
-                    type="password"
-                    onChange={setNewPin}
-                  />
-                </div>
-                <div>
-                  <p>Confirm New PIN</p>
-                  <PinField 
-                    className="field-a"
-                    validate="0123456789"
-                    length="4"
-                    type="password"
-                    onChange={setNewPin1}
-                  />
-                </div>
-                <div className='setting__btnChangePin'>
-                  <Button onClick={handleChangePin} loading={loading}>Change PIN</Button>
+              <div className='setting__changePin'>
+                <p>Change PIN</p>
+                <div className='setting__changePinContainer'>
+                  <div>
+                    <p>Current PIN</p>
+                    <PinField 
+                      className="field-a"
+                      validate="0123456789"
+                      length="4"
+                      type="password"
+                      onChange={setCurrentPin}
+                    />
+                  </div>
+                  <div>
+                    <p>New PIN</p>
+                    <PinField 
+                      className="field-a"
+                      validate="0123456789"
+                      length="4"
+                      type="password"
+                      onChange={setNewPin}
+                    />
+                  </div>
+                  <div>
+                    <p>Confirm New PIN</p>
+                    <PinField 
+                      className="field-a"
+                      validate="0123456789"
+                      length="4"
+                      type="password"
+                      onChange={setNewPin1}
+                    />
+                  </div>
+                  <div className='setting__btnChangePin'>
+                    <Button onClick={handleChangePin} loading={loading}>Change PIN</Button>
+                  </div>
                 </div>
               </div>
-            </div>
             )}
           </div>
         </div>
