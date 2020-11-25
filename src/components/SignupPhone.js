@@ -1,11 +1,14 @@
+// Modules
 import React, { useState } from 'react';
-import '../styles/auth/SignupPhone.css';
+import { useHistory } from 'react-router-dom';
+import Cookie from 'js-cookie';
+import AxiosInstance from '../helpers/AxiosInstance';
+// Components
 import { Button, Input, message } from 'antd';
 import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
-import AxiosInstance from '../helpers/AxiosInstance';
-import Cookie from 'js-cookie';
-import { useHistory } from 'react-router-dom';
+// Styles
+import '../styles/auth/SignupPhone.css';
 
 function SignupPhone() {
   const [phone, setPhone] = useState('');

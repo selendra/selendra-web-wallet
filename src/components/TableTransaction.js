@@ -1,4 +1,6 @@
+// Modules
 import React from 'react';
+// Components
 import { Table } from 'antd';
 
 function TableTransaction(props) {

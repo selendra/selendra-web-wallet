@@ -1,9 +1,12 @@
+// Modules
 import React, { useState } from 'react';
-import '../styles/auth/SignupEmail.css';
+import AxiosInstance from '../helpers/AxiosInstance';
+// Components
 import { Button, Input, message } from 'antd';
 import { ReactComponent as Email } from '../assets/email.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
-import AxiosInstance from '../helpers/AxiosInstance';
+// Styles
+import '../styles/auth/SignupEmail.css';
 
 function LoginEmail() {
   const [email, setEmail] = useState('');

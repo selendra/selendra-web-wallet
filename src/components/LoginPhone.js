@@ -1,11 +1,14 @@
+// Modules
 import React, { useState } from 'react';
-import '../styles/auth/LoginPhone.css';
+import { useHistory, Link } from 'react-router-dom';
+import Cookie from 'js-cookie';
+import AxiosInstance from '../helpers/AxiosInstance';
+// Components
 import { Button, Input, message } from 'antd';
 import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
-import AxiosInstance from '../helpers/AxiosInstance';
-import { useHistory, Link } from 'react-router-dom';
-import Cookie from 'js-cookie';
+// Styles
+import '../styles/auth/LoginPhone.css';
 
 function LoginPhone() {
   const [phone, setPhone] = useState('');
@@ -13,7 +16,7 @@ function LoginPhone() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  const handleLogin = async () => {
+  const handleLogin = async() => {
     setLoading(true);
     await AxiosInstance().post('/loginbyphone', {
       phone: ('+855' + phone.replace(/^0+/, '')),

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 function ChangePIN() {
   return (
-    <div>
+    <div className='changepin'>
       
     </div>
   )
 }
 
-export default ChangePIN
+export default ChangePIN;

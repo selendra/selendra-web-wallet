@@ -1,11 +1,14 @@
+// Modules
 import React, { useState } from 'react';
-import '../styles/auth/LoginEmail.css';
+import { useHistory, Link } from 'react-router-dom';
+import Cookie from 'js-cookie';
+import AxiosInstance from '../helpers/AxiosInstance';
+// Components
 import { Button, Input, message } from 'antd';
 import { ReactComponent as Email } from '../assets/email.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
-import AxiosInstance from '../helpers/AxiosInstance';
-import { useHistory, Link } from 'react-router-dom';
-import Cookie from 'js-cookie';
+// Styles
+import '../styles/auth/LoginEmail.css';
 
 function LoginEmail() {
   const [email, setEmail] = useState('');

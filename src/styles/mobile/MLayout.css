@@ -1,10 +1,13 @@
 .mlayout__footer {
-  height: 95px;
-  
+  height: 90px;
+}
+
+.mlayout__header {
+  height: 60px;
 }
 
 .mlayout__container {
-  height: 100vh;
+  height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,7 +15,7 @@
 
 .mlayout__footerContainer {
   height: 100%;
-  margin: 10px;
+  margin: 0px 10px 0px 10px;
   border-radius: 8px;
   background-color: #23284D;
   display: flex;

@@ -52,7 +52,11 @@ function Login() {
                     onClick={toggleEmail}
                   ></Button>
                 </div>
-                { isPhone ? <LoginPhone className='phone__component'/> : <LoginEmail className='email__component'/> }
+                { isPhone ? 
+                  <LoginPhone className='phone__component'/>
+                  : 
+                  <LoginEmail className='email__component'/> 
+                }
               </div>
             </div>
           </div>

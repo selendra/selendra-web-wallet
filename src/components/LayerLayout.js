@@ -1,9 +1,9 @@
-import { Layout, Menu } from 'antd';
-import React, {
-  useState
-} from 'react';
-import Cookies from 'js-cookie';
+// Modules
+import React, { useState } from 'react';
 import { useLocation, Link, useHistory } from 'react-router-dom';
+import Cookies from 'js-cookie';
+// Components
+import { Layout, Menu } from 'antd';
 import { ReactComponent as Burger } from '../assets/menu.svg';
 import { ReactComponent as Wallet } from '../assets/wallet.svg';
 import { ReactComponent as Transaction } from '../assets/transaction.svg';
@@ -11,10 +11,10 @@ import { ReactComponent as Send } from '../assets/arrowup.svg';
 import { ReactComponent as Receive } from '../assets/arrowdown.svg';
 import { ReactComponent as Setting } from '../assets/cog.svg';
 import { ReactComponent as Exit } from '../assets/exit.svg';
-
-import '../styles/LayerLayout.css';
-import logo from '../assets/Selendra.png';
 import Icon from '@ant-design/icons';
+import logo from '../assets/Selendra.png';
+// Styles
+import '../styles/LayerLayout.css';
 
 
 function LayerLayout(props) {
@@ -78,8 +78,8 @@ function LayerLayout(props) {
                 <span>Setting</span>
               </Link>
             </Menu.Item>
-            <Menu.Item className='layout__menuItem' icon={<ExitIcon/>}>
-              <span onClick={handleLogout}>Log Out</span>
+            <Menu.Item className='layout__menuItem' onClick={handleLogout} icon={<ExitIcon/>}>
+              <span>Log Out</span>
             </Menu.Item>
           </Menu>
         </Sider>

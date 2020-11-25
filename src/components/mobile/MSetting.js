@@ -59,6 +59,46 @@ function MSetting(props) {
     })
   }
 
+  const [current_password, setCurrentPass] = useState('');
+  const [new_password, setNewPass] = useState('');
+  const [new_password1, setNewPass1] = useState('');
+
+  const handleChangePass = () => {
+    setLoading(true);
+    AxiosInstance().post('/change-password',{
+      current_password,
+      new_password
+    })
+    .then((res) => {
+      if(res.data.message) {
+        message.success(res.data.message);
+      } else {
+        message.error(res.data.error.message);
+      }
+      setLoading(false);
+    })
+  }
+
+  const [current_pin, setCurrentPin] = useState('');
+  const [new_pin, setNewPin] = useState('');
+  const [new_pin1, setNewPin1] = useState('');
+
+  const handleChangePin = () => {
+    setLoading(true);
+    AxiosInstance().post('/change-pin', {
+      current_pin,
+      new_pin
+    })
+    .then((res) => {
+      if(res.data.message) {
+        message.success(res.data.message);
+      } else {
+        message.error(res.data.error.message);
+      }
+      setLoading(false);
+    })
+  }
+
   return (
     <div className='msetting'>
       { isUserprofile && (
@@ -140,25 +180,31 @@ function MSetting(props) {
         <div className='msetting__changePassContainer'>
           <div className='msetting__itemOne'>
             <p>Current Password</p>
-            <Input
-              value=''
+            <Input 
+              placeholder='Current Password'
+              onChange={ e => setCurrentPass(e.target.value) }
+              value={current_password}
             ></Input>
           </div>
           <div className='msetting__itemTwo'>
             <div>
               <p>New Password</p>
-              <Input
-                value=''
+              <Input 
+                placeholder='New Password'
+                onChange={ e => setNewPass(e.target.value) }
+                value={new_password}
               ></Input>
             </div>
             <div>
               <p>Confirm New Password</p>
-              <Input
-                value=''
+              <Input 
+                placeholder='Confirm New Password'
+                onChange={ e => setNewPass1(e.target.value) }
+                value={new_password1}
               ></Input>
             </div>
             <div style={{marginTop: '20px'}}>
-              <Button>Change Password</Button>
+              <Button loading={loading} onClick={handleChangePass}>Change Password</Button>
             </div>
           </div>
         </div>
@@ -174,6 +220,7 @@ function MSetting(props) {
               validate="0123456789"
               length="4"
               type="password"
+              onChange={setCurrentPin}
             />
           </div>
           <div>
@@ -184,6 +231,7 @@ function MSetting(props) {
                 validate="0123456789"
                 length="4"
                 type="password"
+                onChange={setNewPin}
               />
             </div>
             <div>
@@ -193,10 +241,11 @@ function MSetting(props) {
                 validate="0123456789"
                 length="4"
                 type="password"
+                onChange={setNewPin1}
               />
             </div>
             <div style={{marginTop: '20px'}}>
-              <Button>Change PIN</Button>
+              <Button loading={loading} onClick={handleChangePin}>Change PIN</Button>
             </div>
           </div>
         </div>
