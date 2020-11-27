@@ -36,9 +36,6 @@ function SignupPhone() {
           message.error(res.data.message);
         }
       })
-      .catch((err) => {
-        message.error('Something went wrong at our end');
-      })
       setLoading(false);
     }
   }

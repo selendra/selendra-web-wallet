@@ -1,37 +1,13 @@
-.addphone {
-  width: 100%;
-  height: 100%;
-}
-
 .addphone__container {
-  display: flex;
-  justify-content: space-between;
   max-width: 940px;
   height: 100vh;
   margin: 0 auto;
-  padding: 70px 20px;
+  padding: 10px;
 }
-
-.addphone__sectionOne {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-}
-
 .addphone__sectionOne span {
   font-size: 42px;
   font-weight: 400;
 }
-
-.addphone__sectionTwo {
-  display: flex;
-  flex: 0.8;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-}
-
 .addphone__input > Input {
   background-color: #181C35;
   color: #fff;
@@ -57,17 +33,13 @@
   height: 32px;
 }
 
-.addphone__btnAddPhone,
-.addphone__btnSendCode,
-.addphone__btnVerify {
+.addphone__btnAddPhone{
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.addphone__btnAddPhone > Button,
-.addphone__btnSendCode > Button,
-.addphone__btnVerify > Button {
+.addphone__btnAddPhone > Button {
   background: #08B952;
   color: #fff;
   font-size: 16px;
@@ -78,9 +50,7 @@
   border-radius: 8px;
 }
 
-.addphone__btnAddPhone > Button:hover,
-.addphone__btnSendCode > Button:hover,
-.addphone__btnVerify > Button:hover {
+.addphone__btnAddPhone > Button:hover {
   background: #057634;
   color: #b3b3b3;
 }

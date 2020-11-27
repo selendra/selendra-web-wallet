@@ -34,9 +34,6 @@ function LoginEmail() {
         message.error(res.data.error.message);
       }
     })
-    .catch((err) => {
-      message.error('Something went wrong at our end');
-    })
   }
 
   return (
@@ -62,7 +59,7 @@ function LoginEmail() {
       <div className='loginEmail__btn'>
         <Button loading={loading} onClick={handleLogin}>Login</Button>
         <Link to='/signup'>
-          <Button>Don't have account?<span>Sign Up</span></Button>
+          <Button type='text'>Don't have account?<span>Sign Up</span></Button>
         </Link>
       </div>
     </div>

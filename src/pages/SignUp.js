@@ -13,7 +13,6 @@ import '../styles/auth/Signup.css';
 
 function SignUp() {
   const [ isPhone, setIsPhone ] = useState(true);
-
   const togglePhone = () => setIsPhone(true);
   const toggleEmail = () => setIsPhone(false);
 

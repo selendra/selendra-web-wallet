@@ -62,7 +62,7 @@ function LoginPhone() {
       <div className='loginPhone__btn'>
         <Button loading={loading} onClick={handleLogin} >Login</Button>
         <Link to='/signup'>
-          <Button>Don't have account?<span>Sign Up</span></Button>
+          <Button type='text'>Don't have account?<span>Sign Up</span></Button>
         </Link>
       </div>
     </div>

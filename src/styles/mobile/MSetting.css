@@ -67,8 +67,13 @@
 
 .msetting__btn {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   padding-bottom: 14px;
+}
+
+.msetting__btn > div {
+  margin-bottom: 10px;
 }
 
 .msetting__btn Button,
@@ -88,4 +93,9 @@
 .msetting__changePinContainer .field-a {
   width: 50px;
   height: 50px;
+}
+
+.msetting__btnLogout > Button {
+  background: none;
+  color: red;
 }

@@ -62,7 +62,9 @@ function App() {
           </Route>
           <Route path='/getwallet' component={Getwallet}>
             <LayerLayout>
-              <Getwallet />
+              <MLayout>
+                <Getwallet />
+              </MLayout>
             </LayerLayout>
           </Route>
           <Route path='/userverify' component={Userverify}>

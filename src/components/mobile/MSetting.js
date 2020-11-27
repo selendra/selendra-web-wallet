@@ -5,10 +5,13 @@ import '../../styles/mobile/MSetting.css';
 import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom';
 import PinField from 'react-pin-field';
+import Icon from '@ant-design/icons';
+import { ReactComponent as Exit } from '../../assets/exit.svg';
 
 function MSetting(props) {
   const history = useHistory();
   const { Option, OptGroup } = Select;
+  const ExitIcon = props => <Icon component={Exit} {...props} />;
   const sliceStr = (str) => {
     if(str !== undefined) {
       const first = str.slice(0, 1);
@@ -261,9 +264,9 @@ function MSetting(props) {
             <div>
               <Button onClick={handleIsChangePin}>Change PIN</Button>
             </div>
-            {/* <div>
-              <Button type='text' onClick={handleLogout}>Log Out</Button>
-            </div> */}
+            <div className='msetting__btnLogout'>
+              <Button type='text' onClick={handleLogout} icon={<ExitIcon/>}>Log Out</Button>
+            </div>
           </div>
         </div>
       </div>

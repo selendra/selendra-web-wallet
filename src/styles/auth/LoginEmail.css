@@ -10,15 +10,6 @@
 .loginEmail__input {
   position: relative; 
 }
-.loginEmail__input > Button {
-  width: 100%;
-  padding-right: 0;
-  color: #585D86;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
 .loginEmail__input .icon {
   position: absolute;
   top: 28px;
@@ -36,7 +27,6 @@
   padding-left: 46px;
   font-weight: 600;
 }
-
 .loginEmail__input > Input:hover {
   border: 2px solid #08B952;
 }
@@ -44,7 +34,15 @@
   border: 2px solid #08B952;
   transition: all .3s ease;
 }
-
+.loginEmail__input > Button {
+  width: 100%;
+  padding-right: 0;
+  color: #585D86;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .loginEmail__btn {
   margin-top: 1rem;
   display: flex;
@@ -72,9 +70,7 @@
 }
 
 .loginEmail__btn > a:nth-child(2) > Button {
-  background-color: transparent;
   color: #585D86;
-  border: none;
   font-size: 16px; 
   font-weight: bold;
 }
@@ -82,42 +78,4 @@
   color: #40FF90;
   margin-top: 20px;
   margin-left: 8px;
-}
-.loginEmail__btn > Button:nth-child(2):hover {
-  color: #1890ff;
-}
-
-
-
-
-
-
-/* RESPONSIVE */
-/* SmartPhone */
-@media only screen and (max-width: 500px) {
-    
-}
-/* Tablet */
-@media only screen and (min-width: 501px) and (max-width: 768px) {
-    
-}
-/* Normal */
-@media only screen and (min-width: 769px) and (max-width: 1199px){
-    
-}
-/* Large monitor */
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
-  .loginEmail__btn > Button:nth-child(2) {
-    display: none;
-  }
-}
-/* Landscape */
-@media only screen and (max-height: 500px) {
-    
-}
-/* Widescreen */
-@media only screen and (min-width: 1920px) {
-  .loginEmail__btn > Button:nth-child(2) {
-    display: none;
-  }
 }
