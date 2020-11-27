@@ -44,7 +44,8 @@ function SignupPhone() {
     <div className='signupPhone__field'>
       <div className='signupPhone__input'>
         <Input 
-          placeHolder='Phone'
+          placeholder='Phone'
+          type='tel'
           onChange={ e => setPhone(e.target.value) }
           value={phone}
         ></Input>
@@ -52,7 +53,7 @@ function SignupPhone() {
       </div>
       <div className='signupPhone__input'>
         <Input 
-          placeHolder='Password'
+          placeholder='Password'
           type='password'
           onChange={ e => setPassword(e.target.value) }
           value={password}
@@ -61,7 +62,7 @@ function SignupPhone() {
       </div>
       <div className='signupPhone__input'>
         <Input 
-          placeHolder='Confirm Password'
+          placeholder='Confirm Password'
           type='password'
           onChange={ e => setPasswordCon(e.target.value) }
           value={passwordCon}

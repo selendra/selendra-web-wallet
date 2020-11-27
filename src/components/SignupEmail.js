@@ -37,7 +37,7 @@ function LoginEmail() {
     <div className='signupEmail__field'>
       <div className='signupEmail__input'>
         <Input 
-          placeHolder='Email'
+          placeholder='Email'
           onChange={ e => setEmail(e.target.value) }
           value={email}  
         ></Input>
@@ -45,7 +45,7 @@ function LoginEmail() {
       </div>
       <div className='signupEmail__input'>
         <Input 
-          placeHolder='Password'
+          placeholder='Password'
           type='password'
           onChange={ e => setPassword(e.target.value) }  
           value={password}
@@ -54,7 +54,7 @@ function LoginEmail() {
       </div>
       <div className='signupEmail__input'>
         <Input 
-          placeHolder='Confirm Password'
+          placeholder='Confirm Password'
           type='password'
           onChange={ e => setPasswordCon(e.target.value) }  
           value={passwordCon}

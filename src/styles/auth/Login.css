@@ -47,9 +47,11 @@
   height: 48px;
   margin: 0 -1px;
 }
-.login__toggle > Button:nth-child(1),
-.login__toggle > Button:nth-child(2) {
+.login__toggle > Button:nth-child(1) {
   border-radius: 8px 0 0 8px;
+}
+.login__toggle > Button:nth-child(2) {
+  border-radius: 0 8px 8px 0;
 }
 .login__toggle > Button:hover {
   transition: 0.1s;

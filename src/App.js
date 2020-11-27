@@ -69,7 +69,9 @@ function App() {
           </Route>
           <Route path='/userverify' component={Userverify}>
             <LayerLayout>
-              <Userverify />
+              <MLayout>
+                <Userverify />
+              </MLayout>
             </LayerLayout>
           </Route>
           <Route path='/login' component={Login}/>

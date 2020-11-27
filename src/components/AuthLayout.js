@@ -22,7 +22,7 @@ export default function AuthLayout(props) {
             <LoginAI className='authlayout__ai'/>
           </div>
         </Col>
-        <Col xs={24} sm={24} md={24} lg={16} xl={16} style={{height: '100vh'}}>
+        <Col xs={24} sm={24} md={24} lg={16} xl={16}>
           {props.children}
         </Col>
       </Row>

@@ -11,26 +11,18 @@
   font-size: 16px;
   border: none;
   border-radius: 8px;
-  margin: 10px 0;
   height: 69px;
-  width: 100%;
   padding-left: 46px;
   font-weight: 600;
 }
 .signupPhone__input {
-  position: relative; 
+  position: relative;
+  margin-top: 20px; 
 }
 .signupPhone__input .icon {
   position: absolute;
-  top: 28px;
+  top: 18px;
   left: 8px;
-}
-.signupPhone__input > Input:hover {
-  border: 2px solid #08B952;
-}
-.signupPhone__input > Input:focus {
-  border: 2px solid #08B952;
-  transition: all .3s ease;
 }
 .signupPhone__btn {
   margin-top: 1rem;

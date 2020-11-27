@@ -1,12 +1,10 @@
 .signupEmail__field {
   width: 100%;
 }
-
 .signupEmail__field .icon {
   width: 30px;
   height: 32px;
 }
-
 .signupEmail__input {
   position: relative; 
 }
@@ -27,15 +25,6 @@
   padding-left: 46px;
   font-weight: 600;
 }
-
-.signupEmail__input > Input:hover {
-  border: 2px solid #08B952;
-}
-.signupEmail__input > Input:focus {
-  border: 2px solid #08B952;
-  transition: all .3s ease;
-}
-
 .signupEmail__btn {
   margin-top: 1rem;
   display: flex;
@@ -52,40 +41,7 @@
   border: none;
   border-radius: 8px;
 }
-.signupEmail__btn > Button:nth-child(1) > span {
-
-}
 .signupEmail__btn > Button:nth-child(1):hover {
   background: #057634;
   color: #b3b3b3;
-}
-
-
-
-
-
-/* RESPONSIVE */
-/* SmartPhone */
-@media only screen and (max-width: 500px) {
-    
-}
-/* Tablet */
-@media only screen and (min-width: 501px) and (max-width: 768px) {
-    
-}
-/* Normal */
-@media only screen and (min-width: 769px) and (max-width: 1199px){
-    
-}
-/* Large monitor */
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
- 
-}
-/* Landscape */
-@media only screen and (max-height: 500px) {
-    
-}
-/* Widescreen */
-@media only screen and (min-width: 1920px) {
-  
 }

@@ -57,7 +57,7 @@ function LoginPhone() {
           value={password}
         ></Input>
         <Lock className='icon'/>
-        <Button type='link'>Forget Password ?</Button>
+        <Button type='text'>Forget Password ?</Button>
       </div>
       <div className='loginPhone__btn'>
         <Button loading={loading} onClick={handleLogin} >Login</Button>

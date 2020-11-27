@@ -1,18 +1,17 @@
 .loginEmail__field {
   width: 100%;
 }
-
 .loginEmail__field .icon {
   width: 30px;
   height: 32px;
 }
-
 .loginEmail__input {
   position: relative; 
+  margin-top: 20px;
 }
 .loginEmail__input .icon {
   position: absolute;
-  top: 28px;
+  top: 18px;
   left: 8px;
 }
 .loginEmail__input > Input {
@@ -21,18 +20,9 @@
   font-size: 16px;
   border: none;
   border-radius: 8px;
-  margin: 10px 0;
   height: 69px;
-  width: 100%;
   padding-left: 46px;
   font-weight: 600;
-}
-.loginEmail__input > Input:hover {
-  border: 2px solid #08B952;
-}
-.loginEmail__input > Input:focus {
-  border: 2px solid #08B952;
-  transition: all .3s ease;
 }
 .loginEmail__input > Button {
   width: 100%;
@@ -59,16 +49,13 @@
   border: none;
   border-radius: 8px;
 }
-
 .loginEmail__btn > Button:nth-child(1) > span {
   display: inline;
 }
-
 .loginEmail__btn > Button:nth-child(1):hover {
   background: #057634;
   color: #b3b3b3;
 }
-
 .loginEmail__btn > a:nth-child(2) > Button {
   color: #585D86;
   font-size: 16px; 

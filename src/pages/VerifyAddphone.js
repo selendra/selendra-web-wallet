@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import AxiosInstance from '../helpers/AxiosInstance';
 // Components
-import { Input, Button, message } from 'antd';
+import { Input, Button, message, Row, Col } from 'antd';
 import AuthLayout from '../components/AuthLayout';
 import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Chat } from '../assets/chat.svg';
@@ -51,7 +51,43 @@ function VerifyAddphone() {
 
   return (
     <AuthLayout>
-      <div className='verifyaddphone'>
+      <Row align='middle' className='verifyaddphone__container'>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+          <div className='verifyaddphone__sectionOne'>
+            <p>Verify Phone Number</p>
+            <span>Selendra will send you a verification code</span>
+          </div>
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+          <div className='addphone__input'>
+            <Input
+              placeholder='Phone'
+              value={payload.phone}
+              onChange={ e => setPayload(e.target.value) }
+            ></Input>
+            <Phone className='addphone__icon'/>
+          </div>
+          {codeField && (<>
+            <div className='addphone__input'>
+              <Input
+                placeholder='Verification Code'
+                value={payload.verification_code}
+                onChange={ e => setPayload(e.target.value) }
+              ></Input>
+              <Chat className='addphone__icon'/>
+            </div>
+            <div className='addphone__btnVerify'>
+              <Button onClick={handleVerify} loading={loading}>Verify</Button>
+            </div>
+          </>)}
+          {!codeField && (
+            <div className='addphone__btnSendCode'>
+              <Button onClick={handleSendCode} loading={loading}>Send Code</Button>
+            </div>
+          )}
+        </Col>
+      </Row>
+      {/* <div className='verifyaddphone'>
         <div className='verifyaddphone__container'>
           <div className='verifyaddphone__sectionOne'>
             <p>Verify Phone Number</p>
@@ -86,7 +122,7 @@ function VerifyAddphone() {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </AuthLayout>
   )
 }

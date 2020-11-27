@@ -11,18 +11,17 @@
   font-size: 16px;
   border: none;
   border-radius: 8px;
-  margin: 10px 0;
   height: 69px;
-  width: 100%;
   padding-left: 46px;
   font-weight: 600;
 }
 .loginPhone__input {
   position: relative; 
+  margin-top: 20px;
 }
 .loginPhone__input .icon {
   position: absolute;
-  top: 28px;
+  top: 18px;
   left: 8px;
 }
 .loginPhone__input > Button {
@@ -33,13 +32,6 @@
   padding-right: 0;
   color: #585D86;
   font-weight: bold;
-}
-.loginPhone__input > Input:hover {
-  border: 2px solid #08B952;
-}
-.loginPhone__input > Input:focus {
-  border: 2px solid #08B952;
-  transition: all .3s ease;
 }
 .loginPhone__btn {
   margin-top: 1rem;
