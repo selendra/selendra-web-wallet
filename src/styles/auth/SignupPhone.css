@@ -5,13 +5,13 @@
   width: 30px;
   height: 32px;
 }
-.signupPhone__input > Input {
+.signupPhone__input > input {
   background-color: #181C35;
   color: #fff;
-  font-size: 16px;
   border: none;
   border-radius: 8px;
   height: 69px;
+  font-size: 16px;
   padding-left: 46px;
   font-weight: 600;
 }
@@ -43,4 +43,7 @@
 .signupPhone__btn > Button:nth-child(1):hover {
   background: #057634;
   color: #b3b3b3;
+}
+.signupPhone__btn > Button:nth-child(1) > span {
+  display: inline;
 }

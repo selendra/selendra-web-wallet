@@ -10,7 +10,7 @@ import { ReactComponent as Lock } from '../assets/lock.svg';
 // Styles
 import '../styles/auth/LoginPhone.css';
 
-function LoginPhone() {
+export default function LoginPhone() {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -68,5 +68,3 @@ function LoginPhone() {
     </div>
   )
 }
-
-export default LoginPhone;

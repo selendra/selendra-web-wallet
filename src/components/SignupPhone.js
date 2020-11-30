@@ -10,7 +10,7 @@ import { ReactComponent as Lock } from '../assets/lock.svg';
 // Styles
 import '../styles/auth/SignupPhone.css';
 
-function SignupPhone() {
+export default function SignupPhone() {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCon, setPasswordCon] = useState('');
@@ -52,7 +52,7 @@ function SignupPhone() {
         <Phone className='icon'/>
       </div>
       <div className='signupPhone__input'>
-        <Input 
+        <Input
           placeholder='Password'
           type='password'
           onChange={ e => setPassword(e.target.value) }
@@ -75,5 +75,3 @@ function SignupPhone() {
     </div>
   )
 }
-
-export default SignupPhone;

@@ -93,6 +93,10 @@
   .layout__burgerHeader {
     display: none;
   }
+  .ant-layout,
+  .ant-menu {
+    min-height: auto!important;
+  }
 }
 /* SmartPhone */
 @media only screen and (max-width: 500px) {

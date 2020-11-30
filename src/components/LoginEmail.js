@@ -4,7 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import Cookie from 'js-cookie';
 import AxiosInstance from '../helpers/AxiosInstance';
 // Components
-import { Button, Input, message, Row } from 'antd';
+import { Button, Input, message } from 'antd';
 import { ReactComponent as Email } from '../assets/email.svg';
 import { ReactComponent as Lock } from '../assets/lock.svg';
 // Styles

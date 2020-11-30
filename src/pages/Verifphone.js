@@ -5,10 +5,8 @@ import AxiosInstance from '../helpers/AxiosInstance';
 import Cookie from 'js-cookie';
 // Components
 import { Button, Input, message } from 'antd';
-import { ReactComponent as LoginAI } from '../assets/Login-ai.svg';
 import { ReactComponent as Phone } from '../assets/phone.svg';
 import { ReactComponent as Chat } from '../assets/chat.svg';
-import selendra from '../assets/Selendra.png';
 // Styles
 import '../styles/auth/Login.css';
 import '../styles/VerifyPhone.css';

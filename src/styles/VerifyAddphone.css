@@ -21,10 +21,6 @@
   font-size: 24px;
 }
 
-.verifyaddphone__sectionTwo {
-  flex: 0.9;
-}
-
 .verifyaddphone__sectionTwo > Input {
   background-color: #181C35;
   color: #fff;

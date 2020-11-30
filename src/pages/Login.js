@@ -55,9 +55,9 @@ export default function Login() {
                 ></Button>
               </Row>
               { isPhone ? 
-                <LoginPhone className='phone__component'/>
+                <LoginPhone />
                 : 
-                <LoginEmail className='email__component'/> 
+                <LoginEmail />
               }
             </div>
           </Row>
