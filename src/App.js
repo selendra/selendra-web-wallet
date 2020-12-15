@@ -1,88 +1,69 @@
 import React from 'react';
+import { 
+  Dashboard,
+  Login,
+  Signup, 
+  VerifyPhone, 
+  Transaction, 
+  Send, 
+  Receive, 
+  Profile, 
+  VerifyAddPhone, 
+  VerifyUser, 
+  Getwallet 
+} from './pages';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
+  Switch,
 } from "react-router-dom";
-import './styles/App.css';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
-import LayerLayout from './components/LayerLayout';
-import Wallet from './pages/Wallet';
-import Transaction from './pages/Transaction';
-import Send from './pages/Send';
-import Receive from './pages/Receive';
-import Setting from './pages/Setting';
-import Getwallet from './pages/Getwallet';
-import Verifphone from './pages/Verifphone';
-import Userverify from './pages/Userverify';
-import Addphone from './pages/Addphone';
-import VerifyAddphone from './pages/VerifyAddphone';
-import MLayout from './components/mobile/MLayout';
+import './styles/app.css';
+import { ProtectedRoute } from './helpers/routes';
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <div className="App">
-        <Switch>
-          <Route path='/' exact component={Wallet}>
-            <MLayout>
-              <LayerLayout>
-                <Wallet />
-              </LayerLayout>
-            </MLayout>
-          </Route>
-          <Route path='/transaction' component={Transaction}>
-            <LayerLayout>
-              <MLayout>
-              <Transaction />
-              </MLayout>
-            </LayerLayout>
-          </Route>
-          <Route path='/send' component={Send}>
-            <LayerLayout>
-              <MLayout>
-                <Send />
-              </MLayout>
-            </LayerLayout>
-          </Route>
-          <Route path='/receive' component={Receive}>
-            <LayerLayout>
-              <MLayout>
-                <Receive />
-              </MLayout>
-            </LayerLayout>
-          </Route>
-          <Route path='/setting' component={Setting}>
-            <LayerLayout>
-              <MLayout>
-                <Setting />
-              </MLayout>
-            </LayerLayout>
-          </Route>
-          <Route path='/getwallet' component={Getwallet}>
-            <LayerLayout>
-              <MLayout>
-                <Getwallet />
-              </MLayout>
-            </LayerLayout>
-          </Route>
-          <Route path='/userverify' component={Userverify}>
-            <LayerLayout>
-              <MLayout>
-                <Userverify />
-              </MLayout>
-            </LayerLayout>
-          </Route>
-          <Route path='/login' component={Login}/>
-          <Route path='/signup' component={SignUp}/>
-          <Route path='/verifyphone' component={Verifphone}/>
-          <Route path='/addphone' component={Addphone}/>
-          <Route path='/verifyaddphone' component={VerifyAddphone}/>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path='/login' component={Login}/>
+        <Route exact path='/signup' component={Signup}/>
+        <Route exact path='/verifyphone' component={VerifyPhone}/>
+        <Route exact path='/verifyaddphone' component={VerifyAddPhone}/>
+        <ProtectedRoute 
+          exact
+          path='/'
+          component={Dashboard}
+        />
+        <ProtectedRoute 
+          exact
+          path='/transaction'
+          component={Transaction}
+        />
+        <ProtectedRoute 
+          exact
+          path='/send'
+          component={Send}
+        />
+        <ProtectedRoute 
+          exact
+          path='/receive'
+          component={Receive}
+        />
+        <ProtectedRoute 
+          exact
+          path='/profile'
+          component={Profile}
+        />
+        <ProtectedRoute 
+          exact
+          path='/getwallet'
+          component={Getwallet}
+        />
+        <ProtectedRoute 
+          exact
+          path='/verifyuser'
+          component={VerifyUser}
+        />
+      </Switch>
     </Router>
-  );
+  )
 }
-
-export default App;

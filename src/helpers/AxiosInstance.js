@@ -32,9 +32,7 @@ export default () => {
           window.location = "/login";
         } 
         else {
-          return new Promise((resolve, reject) => {
-            reject(error);
-          });
+          window.location = "/login";
         }
       }
   );

@@ -1,0 +1,13 @@
+/* Change header text and background color */
+.ant-table-thead > tr > th {
+  color: white!important;
+  background: #40425E!important;
+  border-bottom: none!important;
+}
+
+/* Modify list text and background color */
+.ant-table-tbody > tr > td {
+  color: #BDBEE0!important;
+  background: #181C35!important;
+  border-bottom: none!important;
+}

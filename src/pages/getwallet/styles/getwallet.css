@@ -1,0 +1,101 @@
+.getwallet__title {
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.getwallet__description {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.getwallet__btn > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.getwallet__btn > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.ant-modal-content {
+  background: none!important;
+}
+.getwallet__modalTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: lighter;
+}
+
+.getwallet__modalContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.getwallet__modalDescription {
+  max-width: 782px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  background-color: #40425E;
+  border-radius: 8px;
+}
+
+.getwallet__modalDescription > p {
+  margin: 0;
+  color: #BDBEE0;
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+.getwallet__modalKey {
+  color: #fff!important;
+  font-size: 24px!important;
+  font-weight: 500!important;
+  text-align: start!important;
+  margin: 1rem 20px!important ;
+}
+
+.getwallet__modalKey > span {
+  color: #40FF90;
+  font-weight: lighter;
+}
+
+.getwallet__modalButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.getwallet__modalButton > Button,
+.getwallet__modalButton > a > Button {
+  margin-top: 3rem;
+  margin-right: 24px;
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  width: 190px;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+
+.getwallet__modalButton > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.getwallet__modalClose {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

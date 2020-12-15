@@ -1,0 +1,64 @@
+.loginemail {
+  width: 100%;
+  height: auto;
+}
+
+.loginemail > Form {
+  width: 100%;
+}
+
+.loginemail Input {
+  background-color: #181C35!important;
+  color: #fff!important;
+  font-size: 16px!important;
+  font-weight: 600!important;
+}
+
+.loginemail__emailField {
+  border: none!important;
+  border-radius: 8px!important;
+  height: 69px!important;
+  padding-left: 46px!important;
+  margin: 10px 0!important;
+}
+
+.loginemail__passwordField {
+  border: none!important;
+  border-radius: 8px!important;
+  height: 69px!important;
+  padding-left: 46px!important;
+}
+
+.loginemail__btnLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginemail__btnLogin > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 85%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+.loginemail__btnLogin > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.loginemail__mSignup > a {
+  color: #585D86;
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+.loginemail__mSignup > a > span {
+  color: #40FF90;
+}
+
+@media only screen and (min-width: 992px) {
+  .loginemail__mSignup { display: none!important; }
+}

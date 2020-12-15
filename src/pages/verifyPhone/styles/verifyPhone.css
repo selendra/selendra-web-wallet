@@ -1,0 +1,77 @@
+.verifyphone {
+  width: 100%;
+  height: 100%;
+}
+
+.verifyphone__container {
+  max-width: 950px;
+  height: auto;
+  margin: 20px;
+}
+
+.verifyphone__left,
+.verifyphone__right {
+  height: 100vh;
+}
+
+.verifyphone__greeting > p:nth-child(1) {
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+.verifyphone__greeting > p:nth-child(2) {
+  font-weight: 400;
+  font-size: 42px;
+}
+
+.verifyphone Input {
+  background-color: #181C35;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  height: 69px;
+  padding-left: 46px;
+  font-weight: 600;
+}
+
+.verifyphone__btnVerify > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+.verifyphone__btnVerify > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}
+
+.verifyphone__btnResend > Button {
+  font-size: 18px;
+  font-weight: 500;
+  padding-left: 0;
+  color: #057634;
+}
+.verifyphone__btnResend > Button:hover {
+  color: #08B952;
+}
+.verifyphone__btnResend > p {
+  color: #fff;
+}
+.verifyphone__btnResend > p > span {
+  color: #057634;
+}
+
+@media only screen and (max-width: 991px) {
+  .verifyphone__left,
+  .verifyphone__right {
+    height: auto;
+  }
+  .verifyphone__container {
+    height: 100vh;
+  }
+}

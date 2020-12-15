@@ -1,0 +1,36 @@
+.verifyuser {
+  width: 100%;
+  height: auto;
+  padding: 20px 40px;
+}
+
+.verifyuser p {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.verifyuser Input {
+  background-color: #181C35!important;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  height: 69px;
+  font-weight: 600;
+}
+
+.verifyuser__btn > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+
+.verifyuser__btn > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}

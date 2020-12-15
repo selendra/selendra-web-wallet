@@ -1,0 +1,48 @@
+.signupphone {
+  width: 100%;
+  height: auto;
+}
+
+.signupphone > Form {
+  width: 100%;
+}
+
+.signupphone Input {
+  background-color: #181C35!important;
+  color: #fff!important;
+  font-size: 16px!important;
+  font-weight: 600!important;
+}
+.signupphone__phoneField {
+  border: none!important;
+  border-radius: 8px!important;
+  height: 69px!important;
+  padding-left: 46px!important;
+  margin-top: 20px!important;
+}
+.signupphone__passwordField {
+  border: none!important;
+  border-radius: 8px!important;
+  height: 69px!important;
+  padding-left: 46px!important;
+}
+
+.signupphone__btnSignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signupphone__btnSignup > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 85%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+.signupphone__btnSignup > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}

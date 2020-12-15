@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 *:before,
@@ -10,15 +9,8 @@
   box-sizing: border-box;
 }
 
-.ant-spin {
-  width: 100%;
-}
-
-
-@media only screen and (min-width: 1001px) {
-  .mobile { display: none; }
-}
-/* Tablet */
-@media only screen and (max-width: 1000px) {
-  .desktop { display: none; }       
+@media only screen and (max-width: 991px) {
+  .ant-card-body {
+    padding: 10px!important;
+  }
 }

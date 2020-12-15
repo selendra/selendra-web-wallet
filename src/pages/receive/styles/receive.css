@@ -1,0 +1,33 @@
+.receive__title {
+  color: #BDBEE0;
+  font-size: 24px;
+}
+
+.receive__address {
+  color: #BDBEE0;
+  font-size: 18px;
+}
+
+.receive__btnCopy {
+  background: #08B952;
+  border-radius: 8px;
+  padding: 2px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.receive__qr {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.receive__qrDescription > p {
+  color: #fff;
+  font-size: 16px;
+}
+
+.receive__qrDescription > p > span {
+  color: #BDBEE0;
+  font-weight: 600;
+}

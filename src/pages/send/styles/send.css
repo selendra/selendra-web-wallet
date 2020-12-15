@@ -1,0 +1,88 @@
+.send__title > p:nth-child(1) {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.send__title > p:nth-child(2) {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.send__title > p:nth-child(2) > span {
+  font-size: 24px;
+  color: #bdbee0;
+  font-weight: 400;
+}
+
+.send__field Input {
+  height: 70px;
+  font-size: 18px;
+  color: #fff;
+  background: #181C35;
+  border: none;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.ant-select-selector {
+  height: 70px!important;
+  font-size: 18px!important;
+  color: #fff!important;
+  background: #181C35!important;
+  border: none!important;
+  border-radius: 8px!important;
+  margin: 16px 0!important;
+  display: flex!important;
+  align-items: center!important;
+}
+
+.send__field .textarea {
+  width: 100%;
+  height: 70px;
+  font-size: 18px;
+  color: #fff;
+  background: #181C35;
+  border: none;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.send__btn {
+  width: 100%;
+}
+
+.send__btnNext > Button,
+.send__btn > Button {
+  background: #057634;
+  color: #b3b3b3;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+
+.send__btnNext > Button:hover,
+.send__btn > Button:hover {
+  background: #08B952;
+  color: #fff;
+}
+
+.send__detail > p {
+  font-size: 32px;
+}
+
+.send__detail p {
+  color: #bdbee0;
+}
+
+.send__detail img {
+  width: 24px;
+  height: 24px;
+}
+
+.send__pin > p {
+  font-size: 32px;
+  color: #bdbee0;
+}

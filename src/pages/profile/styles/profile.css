@@ -1,0 +1,55 @@
+.profile__circle {
+  position: relative;
+}
+
+.profile__circle {
+  background: #08B952;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile__circleName span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: #fff;
+  font-size: 52px;
+}
+
+.profile__btnOption > Button {
+  background: #057634;
+  color: #b3b3b3;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.profile__btnOption > Button:hover {
+  background: #08B952;
+  color: #fff;
+}
+
+.profile__info p {
+  color: #BDBEE0;
+}
+
+.profile__info > p:nth-child(1) {
+  font-size: 24px;
+}
+
+.profile__info > p:nth-child(2),
+.profile__info > p:nth-child(3),
+.profile__info > p:nth-child(4) {
+  font-size: 32px;
+  margin-left: 20px;
+}
+
+.profile__info > p:nth-child(2) > span,
+.profile__info > p:nth-child(3) > span,
+.profile__info > p:nth-child(4) > span {
+  font-size: 24px;
+  word-wrap: break-word;
+}

@@ -1,0 +1,11 @@
+export { default as Login } from './login';
+export { default as Signup } from './signup';
+export { default as VerifyPhone } from './verifyPhone';
+export { default as Dashboard } from './dashboard';
+export { default as Transaction } from './transaction';
+export { default as Send } from './send';
+export { default as Receive } from './receive';
+export { default as Profile } from './profile';
+export { default as VerifyAddPhone } from './verifyAddPhone';
+export { default as VerifyUser } from './verifyUser';
+export { default as Getwallet } from './getwallet';
