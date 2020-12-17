@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Dlayout, Loading } from '../../components';
-import { Row, Col, Button, Input, Card, Select, message } from 'antd';
+import { Row, Col, Button, Input, Card, Select, message, Modal } from 'antd';
 import { ReactComponent as Arrowright } from '../../assets/arrowright.svg';
+import { ReactComponent as QR } from '../../assets/qr.svg';
 import AxiosInstance from '../../helpers/AxiosInstance';
 import axios from 'axios';
 import './styles/send.css';
 import selendra from '../../assets/selendra.png';
 import PinField from 'react-pin-field';
+import Icon from '@ant-design/icons';
+import QrReader from 'react-qr-reader';
 
 export default function Send() {
   const card = {
@@ -17,6 +20,7 @@ export default function Send() {
     width: '100%',
     height: '100%'
   }
+  const QRIcon = props => <Icon component={QR} {...props} />;
   const { Option, OptGroup } = Select;
   const { TextArea } = Input;
   let today = new Date().toISOString().slice(0, 10);
@@ -41,28 +45,29 @@ export default function Send() {
     loading: true
   })
 
-  useEffect(() => {
-    const reqOne = AxiosInstance().get('/userprofile');
-    const reqTwo = AxiosInstance().get('/portforlio');
+  // useEffect(() => {
+  //   const reqOne = AxiosInstance().get('/userprofile');
+  //   const reqTwo = AxiosInstance().get('/portforlio');
 
-    axios.all([reqOne, reqTwo])
-    .then(axios.spread((...res) => {
-      const userprofile = res[0].data;
-      const portfolio = res[1].data;
-      if(portfolio.error) {
-        setVisible(true)
-      } else {
-        setPortfolio({
-          portfolio,
-          loading: false
-        })
-        setUserprofile({
-          userprofile,
-          loading: false
-        })
-      }
-    }))
-  }, [])
+  //   axios.all([reqOne, reqTwo])
+  //   .then(axios.spread((...res) => {
+  //     const userprofile = res[0].data;
+  //     const portfolio = res[1].data;
+  //     if(portfolio.error) {
+  //       setVisible(true)
+  //     } else {
+  //       setPortfolio({
+  //         portfolio,
+  //         loading: false
+  //       })
+  //       setUserprofile({
+  //         userprofile,
+  //         loading: false
+  //       })
+  //     }
+  //   }))
+  // }, [])
+
   // handle send
   const [pin, setPin] = useState('');
   const [asset_code, SetAssetcode] = useState('');
@@ -89,16 +94,52 @@ export default function Send() {
     })
   }
   // end handle send
+    const modalStyle = {
+      background: '#181C35',
+      borderRadius: '8px'
+    }
+    const [modalScan, setModalScan] = useState(false);
+
+    const openScan = () => {
+      setModalScan(true);
+    }
+    const handleCancel = () => {
+      setModalScan(false);
+    }
+    const handleError = () => {
+      console.log('sth went wrong');
+    }
+    const handleScan = (data) => {
+      if(data) {
+        SetDestination(data);
+        setModalScan(false);
+      } else {
+        return null
+      }
+    }
+
   return (
     <Dlayout>
-      {portfolio.loading && userprofile.loading && (<Loading />)}
-      {(!portfolio.loading && !userprofile.loading ) && ( 
+      {!portfolio.loading && userprofile.loading && (<Loading />)}
+      {(portfolio.loading && userprofile.loading ) && ( 
       <div>
+        <Modal
+          footer={null}
+          visible={modalScan}
+          style={modalStyle}
+          onCancel={handleCancel}
+        >
+          <QrReader 
+            delay={300}
+            onError={handleError}
+            onScan={handleScan}
+          />
+        </Modal>
         <Row>
           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
             <div className='send__title'>
               <p>Send Transaction</p>
-              <p>Balance: <span>{portfolio.portfolio.data.balance}</span></p>
+              {/* <p>Balance: <span>{portfolio.portfolio.data.balance}</span></p> */}
             </div>
             { !isNext && (
             <div className='send__field'>
@@ -107,7 +148,7 @@ export default function Send() {
                   <Input 
                     readOnly 
                     placeholder='From' 
-                    value={userprofile.userprofile.wallet}
+                    // value={userprofile.userprofile.wallet}
                   />
                 </Col>
                 <Col span={2} offset={1}>
@@ -118,6 +159,7 @@ export default function Send() {
                     placeholder='To'
                     value={destination}
                     onChange={e => SetDestination(e.target.value)}  
+                    addonAfter={<QRIcon onClick={openScan}/>}
                   />
                 </Col>
               </Row>
@@ -155,7 +197,7 @@ export default function Send() {
                 <p>Transaction Detail</p>
                 <Row>
                   <Col span={12}>
-                    <p>{sliceStr(userprofile.userprofile.wallet)}</p>
+                    {/* <p>{sliceStr(userprofile.userprofile.wallet)}</p> */}
                     <p><img src={selendra} alt='sel'/>SEL</p>
                   </Col>
                   <Col span={12}>

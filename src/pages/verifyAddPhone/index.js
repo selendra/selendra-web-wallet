@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Auth } from '../../components';
-import { Row, Col, Form, Input, Button, message } from 'antd';
+import { Row, Col, Input, Button, message } from 'antd';
 import './styles/verifyaddphone.css';
 import AxiosInstance from '../../helpers/AxiosInstance';
 

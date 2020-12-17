@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, Link, useHistory } from 'react-router-dom';
-import { Layout, Menu, Row } from 'antd';
+import { Layout, Menu } from 'antd';
 import Cookie from 'js-cookie';
 import Icon from '@ant-design/icons';
 import logo from '../../assets/selendra.png'

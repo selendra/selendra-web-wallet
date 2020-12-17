@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { ReactComponent as X } from '../../assets/x.svg';
