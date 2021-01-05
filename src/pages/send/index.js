@@ -45,28 +45,28 @@ export default function Send() {
     loading: true
   })
 
-  // useEffect(() => {
-  //   const reqOne = AxiosInstance().get('/userprofile');
-  //   const reqTwo = AxiosInstance().get('/portforlio');
+  useEffect(() => {
+    const reqOne = AxiosInstance().get('/userprofile');
+    const reqTwo = AxiosInstance().get('/portforlio');
 
-  //   axios.all([reqOne, reqTwo])
-  //   .then(axios.spread((...res) => {
-  //     const userprofile = res[0].data;
-  //     const portfolio = res[1].data;
-  //     if(portfolio.error) {
-  //       setVisible(true)
-  //     } else {
-  //       setPortfolio({
-  //         portfolio,
-  //         loading: false
-  //       })
-  //       setUserprofile({
-  //         userprofile,
-  //         loading: false
-  //       })
-  //     }
-  //   }))
-  // }, [])
+    axios.all([reqOne, reqTwo])
+    .then(axios.spread((...res) => {
+      const userprofile = res[0].data;
+      const portfolio = res[1].data;
+      if(portfolio.error) {
+        setVisible(true)
+      } else {
+        setPortfolio({
+          portfolio,
+          loading: false
+        })
+        setUserprofile({
+          userprofile,
+          loading: false
+        })
+      }
+    }))
+  }, [])
 
   // handle send
   const [pin, setPin] = useState('');
@@ -120,8 +120,8 @@ export default function Send() {
 
   return (
     <Dlayout>
-      {!portfolio.loading && userprofile.loading && (<Loading />)}
-      {(portfolio.loading && userprofile.loading ) && ( 
+      {portfolio.loading && userprofile.loading && (<Loading />)}
+      {(!portfolio.loading && !userprofile.loading ) && ( 
       <div>
         <Modal
           footer={null}
@@ -139,7 +139,7 @@ export default function Send() {
           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
             <div className='send__title'>
               <p>Send Transaction</p>
-              {/* <p>Balance: <span>{portfolio.portfolio.data.balance}</span></p> */}
+              <p>Balance: <span>{portfolio.portfolio.data.balance}</span></p>
             </div>
             { !isNext && (
             <div className='send__field'>
@@ -148,7 +148,7 @@ export default function Send() {
                   <Input 
                     readOnly 
                     placeholder='From' 
-                    // value={userprofile.userprofile.wallet}
+                    value={userprofile.userprofile.wallet}
                   />
                 </Col>
                 <Col span={2} offset={1}>
