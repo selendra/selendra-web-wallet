@@ -17,7 +17,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import './styles/app.css';
+import './styles/App.css';
 import { ProtectedRoute } from './helpers/routes';
 
 export default function App() {
