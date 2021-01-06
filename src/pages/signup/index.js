@@ -27,12 +27,12 @@ export default function Signup() {
           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
             <Row justify='end' className='Signup__header'>
               <div className='Signup__headerSignup'>
-                <Link>
+                <Link to='/signup'>
                   <Button>SignUp</Button>
                 </Link>
               </div>
               <div className='Signup__headerLogin'>
-                <Link>
+                <Link to='login'>
                   <Button type='text'>Login</Button>
                 </Link>
               </div>
