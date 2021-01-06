@@ -9,7 +9,7 @@ import './styles/getwallet.css';
 import { ReactComponent as X } from '../../assets/x.svg';
 import { ReactComponent as Information } from '../../assets/information.svg';
 import { ReactComponent as Thick } from '../../assets/thick.svg';
-
+import jsPDF from 'jspdf';
 
 export default function Getwallet() {
   const card = {
@@ -73,7 +73,14 @@ export default function Getwallet() {
     const [ModalErr, setModalErr] = useState(false);
     const [value, setValue] = useState([]);
 
-    const handleSavePdf = () => {}
+    const handleSavePdf = () => {
+      var doc = new jsPDF('p', 'pt');
+
+      doc.setFontSize(14);
+      doc.text("Wallet: " + value.wallet , 10, 15);
+      doc.text("Private Key: " + value.seed, 10, 40);
+      doc.save('key.pdf')
+    }
   // End Modal State
 
   return (
@@ -158,8 +165,8 @@ export default function Getwallet() {
               Please keep your key secure. This secret key will only be showed to you once.<br/>
               Selendra will not be able to help you recover it if lost.
             </p>
-            <p className='getwallet__modalKey'>Wallet key: <span>{value.wallet}</span></p>
-            <p className='getwallet__modalKey'>Secret key: <span>{value.seed}</span></p>
+              <p className='getwallet__modalKey'>Wallet key: <span>{value.wallet} adfadfjdfj</span></p>
+              <p className='getwallet__modalKey'>Secret key: <span>{value.seed}adkfjdfkajf</span></p>
           </div>
         </div>
         <div className='getwallet__modalButton'>

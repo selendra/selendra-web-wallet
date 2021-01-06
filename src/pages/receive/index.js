@@ -6,6 +6,7 @@ import AxiosInstance from '../../helpers/AxiosInstance';
 import axios from 'axios';
 import QRCode from 'qrcode.react';
 import './styles/receive.css';
+import { Doughnut } from 'react-chartjs-2';
 
 
 export default function Receive() {
@@ -36,7 +37,7 @@ export default function Receive() {
       return (`${first}...${last}`);
     }
   }
-
+  const [datacollection, setdatacollection] = useState({});
   const [visible, setVisible] = useState(false);
   const [payload, setPayload] = useState({
     trx: null,
@@ -60,6 +61,44 @@ export default function Receive() {
           user: res[1].data,
           portfolio: res[2].data,
           loading: false
+        })
+        let balance = res[2].data.token;
+        setdatacollection({
+          labels: ['SEL'],
+          options: {
+            layout: {
+              padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
+                width: 100
+              }
+            }
+          },
+          datasets: [
+            {
+              label: 'Portfolio',
+              data: [balance],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+              ],
+              borderWidth: 1,
+            },
+          ],
         })
       }
     }))
@@ -98,18 +137,18 @@ export default function Receive() {
             <Card style={card}>
               <p className='receive__title'>Total Balance</p>
               <Row align='middle' style={{height: '100%'}}>
-                <Col span={12}>
-                  <p>SEL: {payload.portfolio.data.balance}</p>
+                <Col span={14}>
+                  <Doughnut data={datacollection} width={260}/>
                 </Col>
-                <Col span={12}>
-                  
+                <Col span={8}>
+                  <p className='receive__token'>SEL: {payload.portfolio.token}</p>
                 </Col>
               </Row>
             </Card>
           </Col>
         </Row>
         <br/>
-        <Row>
+        <Row className='receive__trx'>
           <Col xs={0} sm={0} md={0} lg={24} xl={24}>
             <TableTrx trx={payload.trx}/>
           </Col>

@@ -41,7 +41,7 @@ export default function Dashboard() {
           trx: res[0].data,
           portfolio: res[1].data,
         }); 
-        let balance = res[1].data.data.balance;
+        let balance = res[1].data.token;
         setdatacollection({
           labels: ['SEL'],
           options: {
@@ -98,7 +98,7 @@ export default function Dashboard() {
                 </Col>
                 <Col span={10}>
                   <Row justify='center'>
-                    <p>SEL: {payload.portfolio.data.balance}</p>
+                    <p>SEL: {payload.portfolio.token}</p>
                   </Row>
                 </Col>
               </Row>
@@ -113,7 +113,7 @@ export default function Dashboard() {
                       <img src={selendra} alt='selendra' />
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={24} xl={24}>
-                      <p>{payload.portfolio.data.balance}</p>
+                      <p>{payload.portfolio.token}</p>
                       <span>SEL</span>
                     </Col>
                   </Row>

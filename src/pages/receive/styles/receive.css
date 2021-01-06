@@ -31,3 +31,15 @@
   color: #BDBEE0;
   font-weight: 600;
 }
+
+.receive__trx {
+  padding: 20px;
+  border-radius: 8px;
+  background: #181C35;
+}
+
+.receive__token {
+  font-size: 18px;
+  font-weight: 400;
+  color: #BDBEE0;
+}

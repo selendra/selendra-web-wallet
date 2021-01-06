@@ -139,7 +139,7 @@ export default function Send() {
           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
             <div className='send__title'>
               <p>Send Transaction</p>
-              <p>Balance: <span>{portfolio.portfolio.data.balance}</span></p>
+              <p>Balance: <span>{portfolio.portfolio.token}</span></p>
             </div>
             { !isNext && (
             <div className='send__field'>
