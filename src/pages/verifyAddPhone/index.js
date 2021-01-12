@@ -3,9 +3,12 @@ import { Auth } from '../../components';
 import { Row, Col, Input, Button, message } from 'antd';
 import './styles/verifyaddphone.css';
 import AxiosInstance from '../../helpers/AxiosInstance';
+import { useHistory } from 'react-router-dom';
 
 
 export default function VerifyAddPhone() {
+  const history = useHistory();
+
   const [loading, setLoading] = useState(false);
   const [isCode, setIsCode] = useState(false);
   const [phone, setPhone] = useState('');
@@ -14,8 +17,8 @@ export default function VerifyAddPhone() {
   const handleVerify = (val) => {
     if(!isCode) {
       setLoading(true);
-      AxiosInstance().post('/resend-code', {
-        phone: ('+855' + phone.replace(/^0+/, ''))
+      AxiosInstance().post('/add-phonenumber', {
+        phone: ('+855' + phone)
       })
       .then((res) => {
         if(res.data.message) {
@@ -29,12 +32,13 @@ export default function VerifyAddPhone() {
     } else if(isCode) {
       setLoading(true);
       AxiosInstance().post('/account-confirmation', {
-        phone: ('+855' + phone.replace(/^0+/, '')),
+        phone: ('+855' + phone),
         verification_code
       })
       .then((res) => {
         if(res.data.message) {
           message.success(res.data.message);
+          history.push('/getwallet');
         } else {
           message.error(res.data.error.message);
         }

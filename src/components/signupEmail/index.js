@@ -12,7 +12,7 @@ export default function Signupemail() {
 
   const handleSignup = (val) => {
     setLoading(true);
-    AxiosInstance().post('/registerbyphone', {
+    AxiosInstance().post('/registerbyemail', {
       email: val.email,
       password: val.password
     })
@@ -32,7 +32,7 @@ export default function Signupemail() {
     <div className='signupEmail'>
       <Form onFinish={handleSignup}>
         <Form.Item
-          name="Email"
+          name="email"
           rules={[{ required: true, message: 'Please input your Email' }]}
         >
           <Input className='signupEmail__emailField' placeholder='Email'/>

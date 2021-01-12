@@ -115,7 +115,8 @@ export default function Receive() {
             <Card style={card}>
               <p className='receive__title'>Address</p>
               <Row align='middle' className='receive__address'>
-                <Copy className='receive__btnCopy'/> {sliceStr(payload.user.wallet)}
+                <Copy className='receive__btnCopy' onClick={onCopy}/> {sliceStr(payload.user.wallet)}
+                <input type="text" id="receive__wallet" value={payload.user.wallet} />
               </Row>
               <br />
               <p className='receive__title'>QR Code</p>

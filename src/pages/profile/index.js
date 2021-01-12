@@ -3,6 +3,7 @@ import { ChangePassword, ChangePin, Dlayout, Loading } from '../../components';
 import { Row, Col, Card, Button } from 'antd';
 import AxiosInstance from '../../helpers/AxiosInstance';
 import './styles/profile.css';
+import { Link } from 'react-router-dom';
 
 export default function Profile() {
   const card = {
@@ -61,13 +62,18 @@ export default function Profile() {
             <Row>
               <Card style={card}>
                 <Row justify='center'>
-                  <div className='profile__circle'>
-                    <div className='profile__circleName'>
-                      { user.first_name && user.last_name && (
-                        <span>{sliceStr(user.first_name) + sliceStr(user.last_name)}</span>
-                      )}
+                  <Col>
+                    <div className='profile__circle'>
+                      <div className='profile__circleName'>
+                        { user.first_name && user.last_name && (
+                          <span>{sliceStr(user.first_name) + sliceStr(user.last_name)}</span>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                    <Link to='/verifyuser'>
+                      <p style={{marginTop: '10px'}}>Update Profile</p>
+                    </Link>
+                  </Col>
                 </Row>
               </Card>
             </Row>

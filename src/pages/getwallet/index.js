@@ -165,8 +165,8 @@ export default function Getwallet() {
               Please keep your key secure. This secret key will only be showed to you once.<br/>
               Selendra will not be able to help you recover it if lost.
             </p>
-              <p className='getwallet__modalKey'>Wallet key: <span>{value.wallet} adfadfjdfj</span></p>
-              <p className='getwallet__modalKey'>Secret key: <span>{value.seed}adkfjdfkajf</span></p>
+              <p className='getwallet__modalKey'>Wallet key: <span>{value.wallet}</span></p>
+              <p className='getwallet__modalKey'>Secret key: <span>{value.seed}</span></p>
           </div>
         </div>
         <div className='getwallet__modalButton'>

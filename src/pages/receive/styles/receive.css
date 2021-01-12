@@ -43,3 +43,17 @@
   font-weight: 400;
   color: #BDBEE0;
 }
+
+#receive__wallet {
+  position: absolute;
+  color: #fff;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  left: 0;
+  box-sizing: content-box;
+  -webkit-user-select: initial;
+  outline: none;
+  margin-left: -9999px;
+}
