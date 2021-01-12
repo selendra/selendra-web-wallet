@@ -10,7 +10,10 @@ import {
   Profile, 
   VerifyAddPhone, 
   VerifyUser, 
-  Getwallet 
+  Getwallet,
+  ForgetPassword,
+  ResetPasswordByEmail,
+  ResetPasswordByPhone
 } from './pages';
 import {
   BrowserRouter as Router,
@@ -28,6 +31,9 @@ export default function App() {
         <Route exact path='/signup' component={Signup}/>
         <Route exact path='/verifyphone' component={VerifyPhone}/>
         <Route exact path='/verifyaddphone' component={VerifyAddPhone}/>
+        <Route exact path='/forgetpassword' component={ForgetPassword}/>
+        <Route exact path='/resetpasswordbyemail' component={ResetPasswordByEmail}/>
+        <Route exact path='/resetpasswordbyphone' component={ResetPasswordByPhone}/>
         <ProtectedRoute 
           exact
           path='/'

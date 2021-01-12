@@ -45,6 +45,11 @@ export default function Loginemail() {
         >
           <Input.Password className='loginemail__passwordField' placeholder='Password'/>
         </Form.Item>
+        <Row justify='end'>
+          <Link to='/ForgetPassword'>
+            <p className='loginphone__btnForget'>Forget Password?</p>
+          </Link>
+        </Row>
         <Form.Item>
           <div className='loginemail__btnLogin'>
             <Button htmlType="submit" loading={loading}>Login</Button>

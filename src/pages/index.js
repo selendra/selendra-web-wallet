@@ -9,3 +9,6 @@ export { default as Profile } from './profile';
 export { default as VerifyAddPhone } from './verifyAddPhone';
 export { default as VerifyUser } from './verifyUser';
 export { default as Getwallet } from './getwallet';
+export { default as ForgetPassword } from './forgetPassword';
+export { default as ResetPasswordByEmail } from './resetPasswordByEmail';
+export { default as ResetPasswordByPhone } from './resetPasswordByPhone';

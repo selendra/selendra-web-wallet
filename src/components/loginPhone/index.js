@@ -44,6 +44,11 @@ export default function LoginPhone() {
         >
           <Input.Password className='loginphone__passwordField' placeholder='Password'/>
         </Form.Item>
+        <Row justify='end'>
+          <Link to='/ForgetPassword'>
+            <p className='loginphone__btnForget'>Forget Password?</p>
+          </Link>
+        </Row>
         <Form.Item>
           <div className='loginphone__btnLogin'>
             <Button htmlType="submit" loading={loading}>Login</Button>

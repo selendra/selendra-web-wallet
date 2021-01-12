@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Card } from 'antd';
+import { Row, Col, Card, Modal, Button } from 'antd';
 import { Dlayout, Loading, MTableTrx, TableTrx } from '../../components';
 import { Doughnut } from 'react-chartjs-2';
-import { ReactComponent as Plus } from '../../assets/plus.svg'
+import { ReactComponent as Plus } from '../../assets/plus.svg';
 import axios from 'axios';
 import AxiosInstance from '../../helpers/AxiosInstance';
 import selendra from '../../assets/selendra.png';
 import './styles/dashboard.css';
+import ModalGetWallet from '../../components/modalGetwallet';
 
 export default function Dashboard() {
   const card = {
@@ -85,6 +86,7 @@ export default function Dashboard() {
 
   return (
     <Dlayout>
+      <ModalGetWallet visible={visible} />
       {payload.loading && (<Loading />)}
       {!payload.loading && (
       <div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dlayout, MTableTrx, TableTrx, Loading } from '../../components';
+import { Dlayout, MTableTrx, TableTrx, Loading, ModalGetWallet } from '../../components';
 import { Row, Col, Card } from 'antd';
 import { ReactComponent as Copy } from '../../assets/copy.svg';
 import AxiosInstance from '../../helpers/AxiosInstance';
@@ -106,6 +106,7 @@ export default function Receive() {
 
   return (
     <Dlayout>
+      <ModalGetWallet visible={visible} />
       {payload.loading && (<Loading />)}
       {!payload.loading && (
       <div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Dlayout, Loading } from '../../components';
+import { Dlayout, Loading, ModalGetWallet } from '../../components';
 import { Row, Col, Button, Input, Card, Select, message, Modal } from 'antd';
 import { ReactComponent as Arrowright } from '../../assets/arrowright.svg';
 import { ReactComponent as QR } from '../../assets/qr.svg';
@@ -120,6 +120,7 @@ export default function Send() {
 
   return (
     <Dlayout>
+      <ModalGetWallet visible={visible}/>
       {portfolio.loading && userprofile.loading && (<Loading />)}
       {(!portfolio.loading && !userprofile.loading ) && ( 
       <div>

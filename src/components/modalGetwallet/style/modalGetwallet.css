@@ -1,0 +1,32 @@
+.modal__title {
+  font-size: 42px;
+  font-weight: lighter;
+  margin-bottom: 6px;
+}
+
+.modal__description {
+  font-size: 32px;
+  font-weight: lighter;
+  background-color: #40425E;
+  color: #BDBEE0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.modal__btn > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 60%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 6%;
+}
+
+.modal__btn > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}

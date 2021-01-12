@@ -1,0 +1,35 @@
+.forgetphone {
+  width: 100%;
+  height: auto;
+}
+
+.forgetphone > Form {
+  width: 100%;
+}
+.forgetphone Input {
+  background-color: #181C35!important;
+  color: #fff!important;
+  font-size: 16px!important;
+  font-weight: 600!important;
+  border: none!important;
+  border-radius: 8px!important;
+  margin: 10px 0!important;
+}
+
+.forgetphone__phoneField {
+  height: 60px!important;
+}
+.forgetphone__btnSend > Button {
+  background: #08B952;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 8px;
+}
+.forgetphone__btnSend > Button:hover {
+  background: #057634;
+  color: #b3b3b3;
+}
